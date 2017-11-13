@@ -1,0 +1,38 @@
+{% extends "students/Base.html" %}
+{% block title %}Create Student{% endblock %}
+
+{% block content %}
+    <h3>Create Student</h3>
+    <div class="col-xs-4">
+        <form action="{% url 'createStudent' %}" method="POST">
+          {% csrf_token %}
+
+          <div class="fieldWrapper">
+            {{ form.firstName.label_tag }}<br/>
+            {{ form.firstName.errors }}
+            {{ form.firstName }}
+          </div>
+          <br/>
+
+          <div class="fieldWrapper">
+            {{ form.lastName.label_tag }}<br/>
+            {{ form.lastName.errors }}
+            {{ form.lastName }}
+          </div>
+          <br/>
+
+          <div class="fieldWrapper">
+            {{ form.phoneNumber.label_tag }}<br/>
+            {{ form.phoneNumber.errors }}
+            {{ form.phoneNumber }}
+          </div>
+          <br/>
+
+          {{ form.non_field_errors }}
+
+          <input class="btn btn-default" type="submit" >
+          <br /><br />
+        </form>
+    </div>
+</div>
+{% endblock %}

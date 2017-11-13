@@ -1,0 +1,50 @@
+{% extends "students/Base.html" %}
+
+{% block title %}SubjectGrades{% endblock %}
+
+{% block content %}
+    <h2>Subject Scores Data</h2>
+
+    <table class="table table-striped">
+    <tr>
+        <td>subject</td>
+        <td>subject1</td>
+        <td>subject2</td>
+        <td>subject3</td>
+    </tr>
+
+    {% for data in subjectsList %}
+        <tr>
+            <td>No.{{ data.0 }} exam</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>total</td>
+            <td>{{ data.1 }}</td>
+            <td>{{ data.2 }}</td>
+            <td>{{ data.3 }}</td>
+        </tr>
+        <tr>
+            <td>average</td>
+            <td>{{ data.4 }}</td>
+            <td>{{ data.5 }}</td>
+            <td>{{ data.6 }}</td>
+        </tr>
+        <tr>
+            <td>number of students in the exam</td>
+            <td>{{ data.7 }}</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr> 
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        
+    {% endfor %}
+    </table>
+{% endblock %}

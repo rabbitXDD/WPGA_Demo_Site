@@ -1,0 +1,72 @@
+{% extends "students/Base.html" %}
+
+{% block title %}Visualizations{% endblock %}
+
+{% block content %}
+    <table class="table table-striped">
+        <tr>
+            <td>Question1</td>
+            <td>Question2</td>
+            <td>Question3</td>
+            <td>Question4</td>
+            <td>Question5</td>
+            <td>Question6-12</td>
+        </tr>
+
+    
+        <tr>
+            <td>{{ studentGrades.0 }}</td>
+            <td>{{ studentGrades.1 }}</td>
+            <td>{{ studentGrades.2 }}</td>
+            <td>{{ studentGrades.3 }}</td>
+            <td>{{ studentGrades.4 }}</td>
+            <td>{{ studentGrades.5 }}</td>
+        </tr>
+
+    </table>
+    <div id="visual" style="width:50%;height:20%;">
+        {{ figure|safe }}
+        {{ figure_2|safe}}
+        {{ figure_3|safe}}
+        {{ figure_4|safe}}
+        {{ figure_5|safe}}
+        {{ figure_6|safe}}
+    </div>
+
+    <div class="forms" style="position:fixed;left:50%; bottom:30%">
+        <form action="/students/" method="post">
+            {% csrf_token %}
+            <h3>{{question}}</h3>
+            {% if form.errors %}
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endif %}
+            {% for radio in form.answer %}
+            <div class="myradio">
+                {{ radio }}
+            </div>
+            {% endfor %}
+
+            <input type="submit" class="btn btn-primary">
+        </form>
+
+    </div>
+
+    <!-- {% if studentsList%}
+    {% else %}
+        <p>No students are available.</p>
+    {% endif %} -->
+{% endblock %}
+
+
+

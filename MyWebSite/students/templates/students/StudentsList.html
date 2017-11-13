@@ -1,0 +1,70 @@
+{% extends "students/Base.html" %}
+
+{% block content %}
+    <h2>Student Grade List</h2>
+    {% if object_list%}
+        <table class="table table-striped">
+        <tr>
+            <td>first name</td>
+            <td>last name</td>
+            <td>phone number</td>
+            <td>exam number</td>
+            <td>subject1</td>
+            <td>subject2</td>
+            <td>subject3</td>
+        </tr>
+
+        {% for ele in object_list %}
+            {% if ele.grade.all %}
+                
+                {% for g in ele.grade.all %}
+                    {% if g == ele.grade.all.first %}
+                        <tr>
+                            <td>{{ ele.firstName }}</td>
+                            <td>{{ ele.lastName }}</td>
+                            <td>{{ ele.phoneNumber }}</td>
+                            <td>{{ g.examNumber }}</td>
+                            <td>{{ g.subject1Score }}</td>
+                            <td>{{ g.subject2Score }}</td>
+                            <td>{{ g.subject3Score }}</td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>{{ g.examNumber }}</td>
+                            <td>{{ g.subject1Score }}</td>
+                            <td>{{ g.subject2Score }}</td>
+                            <td>{{ g.subject3Score }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td>{{ ele.firstName }}</td>
+                    <td>{{ ele.lastName }}</td>
+                    <td class='phone'>{{ ele.phoneNumber }}</td>
+                </tr>
+            {% endif %}
+            
+        {% endfor %}
+        </table>
+    {% endif %}
+
+
+    {% if is_paginated %}
+        <select class="special-flexselect" id="pageSelect">
+            {% for ele in page_obj.paginator.page_range %}
+                <option value="{% url 'paginatedStudents' %}?page={{ ele }}">{{ ele }}</option> 
+            {% endfor %}
+        </select>
+
+        <script type="text/javascript">
+            var currentPage = '{{page_obj.number}}';
+            $("#pageSelect option").filter(function() {
+                return $(this).text() == currentPage; 
+            }).prop('selected', true);
+        </script>
+    {% endif %}
+{% endblock %}

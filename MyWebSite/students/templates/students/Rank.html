@@ -1,0 +1,51 @@
+{% extends "students/Base.html" %}
+{% block title %}Rank{% endblock %}
+
+{% block content %}
+    <h3>What number of exam would you like to rank?</h3>
+    <div class="col-xs-3">
+        <form action="/students/rank/" method="POST">
+            {% csrf_token %}
+            <input type="text" name="examNumber" class="form-control" placeholder="Rank Exam Number(ex.1)">  <br />
+            <input type="submit" class="btn btn-default">
+        </form>
+    </div>
+    <br><br><br><br><br>
+    <div>
+        <h2>Rank Result of Exam No.{{ examNumber }}</h2>
+
+        <table class="table table-striped">
+            <tr>
+                <td>rank</td>
+                <td>first name</td>
+                <td>last name</td>
+                <td>total score</td>
+                <td>exam number</td>
+                <td>subject1</td>
+                <td>subject2</td>
+                <td>subject3</td>
+            </tr>
+        {% if rankResult %}
+                {% for ele in rankResult %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ ele.student.firstName }}</td>
+                        <td>{{ ele.student.lastName }}</td>
+                        <td>{{ ele.gradeSum }}</td>
+                        <td>{{ ele.examNumber }}</td>
+                        <td>{{ ele.subject1Score }}</td>
+                        <td>{{ ele.subject2Score }}</td>
+                        <td>{{ ele.subject3Score }}</td>
+                    </tr>
+                {% endfor %}
+            
+        {% else %}
+            <tr>
+                <td><h3>Not Found</h3></td>
+            </tr>
+
+        {% endif %}
+        </table>
+    </div>
+    
+{% endblock %}

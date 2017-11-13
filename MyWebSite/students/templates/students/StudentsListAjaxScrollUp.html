@@ -1,0 +1,23 @@
+{% extends "students/Base.html" %}
+
+{% block content %}
+    <h2>Student Grade List</h2>
+    <table class="table table-striped" >
+        <tbody id="studentsTable">
+            <tr>
+                <td>first name</td>
+                <td>last name</td>
+                <td>phone number</td>
+                <td>exam number</td>
+                <td>subject1</td>
+                <td>subject2</td>
+                <td>subject3</td>
+            </tr>
+
+    </table>
+    
+    <div><input type='hidden' id='pagination' value='0'></div>
+    <p id='load'>scroll up for more data</p>
+    <br><br><br>
+
+{% endblock %}

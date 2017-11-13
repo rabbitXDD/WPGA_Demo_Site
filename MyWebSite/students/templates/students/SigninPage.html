@@ -1,0 +1,21 @@
+{% extends "students/Base.html" %}
+{% block title %}Signin{% endblock %}
+
+{% block content %}
+    <h3>Sign in</h3>
+    <div class="col-xs-4">
+      {% if next %}
+      <form action="students/signin/?next={{next}}" method="POST" >
+      {% else %}
+        <form action="students/signin/" method="POST">
+          {% csrf_token %}
+            account name
+            <input type="text" name="accountName" class="form-control" placeholder=""><br />
+
+            password
+            <input type="password" name="password" class="form-control" placeholder=""><br />
+            <input class="btn btn-default" type="submit">
+        </form>
+      {% endif %}
+    </div>
+{% endblock %}

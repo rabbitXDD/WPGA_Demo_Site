@@ -228,7 +228,33 @@ def showVisualizations(request):
             answer.save()
             return HttpResponseRedirect('/thanks/')
         else:
-            fig_html, student_questionslist, average = getVisualization(request)
+            if request.user.MondayClass:
+                fig_html, student_questionslist, average = getVisualization(request)
+                context = {
+                    'figure': fig_html,
+                    'studentGrades': student_questionslist,
+                    'classAverages': average,
+                    'form': form,
+                    'question': question,
+                }
+            else:
+                fig_html, student_questionslist, average = getVisualization_2(request, 1)
+                fig_html_list = []
+                for i in range(1,7):
+                    fig_html_list.append(getVisualization_2(request, i)[0])
+
+                context = {
+                    'figure': fig_html,
+                    'figure_2': fig_html_list[1],
+                    'figure_3': fig_html_list[2],
+                    'figure_4': fig_html_list[3],
+                    'figure_5': fig_html_list[4],
+                    'figure_6': fig_html_list[5],
+                    'studentGrades': student_questionslist,
+                    'classAverages': average,
+                    'form': form,
+                    'question': question,
+                }
     else:
         form = Valuations.ValuationsForm
         question = EvaluationQuestion.objects.all()[0]

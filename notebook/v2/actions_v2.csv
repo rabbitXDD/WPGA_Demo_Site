@@ -1,0 +1,17 @@
+id,EventID,Name
+1,NoteTaking
+11,login
+2,click course&exam tag
+3,click a question
+12,logout
+4,checked box(not use)
+5,important bookmark
+6,learned this question
+7,show combine_boomark_and_unknown
+8,show boomark
+9,show unknown
+13,click prev button
+14,click next button
+15,unpublish exam
+16,publish exam
+17,Question  view close

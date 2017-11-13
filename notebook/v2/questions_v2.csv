@@ -1,0 +1,1247 @@
+id,examTag,Teacher,QuestionID,Question,QuestionType,ShowAns,QuestionSolution,FullTagWeights,MaxGrade,Class
+2657,test,Jennifer Lin___Status:True,1,1.Write the Java code that calculates the value of S (a decimal number) in the following equation. Use math methods in the Java library.  Variable names must be descriptive. S = (   ( ∑ Ai2  -  ( (∑ Ai)2  / x )  )  /  ( x – 1)   )1/2,1,TRUE,"Math.sqrt( (sumOfASquared – (Math.pow(sumOfA, 2) / x) ) / (x – 1) )","[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",6,Programming Language II_649
+2681,Exam2,Jennifer Lin___Status:True,1,1.Write the Java code that calculates the value of S (a decimal number) in the following equation. Use math methods in the Java library.  Variable names must be descriptive. S = (   ( ∑ Ai2  -  ( (∑ Ai)2  / x )  )  /  ( x – 1)   )1/2,1,TRUE,"Math.sqrt( (sumOfASquared – (Math.pow(sumOfA, 2) / x) ) / (x – 1) )","[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmetic Operations""}]",6,Programming Language II_649
+2682,Exam2,Jennifer Lin___Status:True,2,2.Please convert the following JAVA expression to Math expression. y  =  ( - b  + Math.sqrt( b * b – 4  * a * c) ) / ( 2 * a ),1,TRUE,(-b + (b^2 - 4*a*c)^(1/2)) / 2*a,"[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmetic Operations""}]",6,Programming Language II_649
+2683,Exam2,Jennifer Lin___Status:True,3,"3.In assignment #2, the public interface of the Easter class contains a class method called calculateEaster(aYear):String.  Write the code in the EasterTester class that calls this method for the year 2000 and displays the result to the console",1,TRUE,System.out.println(Easter.calculateEaster(2000)); ,"[{""TagWeight"": ""2"", ""TagName"": ""static method""}, {""TagWeight"": ""1"", ""TagName"": ""no system.out.println""}, {""TagWeight"": ""2"", ""TagName"": ""using object to call""}, {""TagWeight"": ""1"", ""TagName"": ""input parameter issue""}]",6,Programming Language II_649
+2684,Exam2,Jennifer Lin___Status:True,4,"4.Given these variables, int day = 22 ; String month = “May” ; int year = 2015 ; Use string concatenation to write a single Java statement that displays the following to the console:   Hugh was born on May 22, 2015 ",1,TRUE,"System.out.println(“Your birthday is ”+month+” “+day+”, ”+year);","[{""TagWeight"": ""2"", ""TagName"": ""String concatenation""}, {""TagWeight"": ""1"", ""TagName"": ""no system.out.println""}, {""TagWeight"": ""1"", ""TagName"": ""each variable""}]",6,Programming Language II_649
+2685,Exam2,Jennifer Lin___Status:True,5,5.Write the method (hint : isValidGrade)  in assignment #3 that determines whether a grade is within a valid grade range.  Your code may assume that appropriate constants for the max and min grades have been declared in the class:,1,TRUE,public boolean isValidGrade(double aGrade){ return (aGrade >= MIN_GRADE && aGrade <= MAX_GRADE);},"[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""if else""}, {""TagWeight"": ""2"", ""TagName"": ""constants""}, {""TagWeight"": ""2"", ""TagName"": ""Access Control""}]",6,Programming Language II_649
+2686,Exam2,Jennifer Lin___Status:True,6,6.Add Javadoc annotations to the method written in #2.  Simply rewrite it as an empty method and add the annotations here.,1,TRUE,"/** Determines whether a grade is within acceptable range
+@param aGrade grade entered by user
+@return grade is valid when MIN_GRADE <= aGrade <= MAX_GRADE
+*/","[{""TagWeight"": ""2"", ""TagName"": ""no method purpose""}, {""TagWeight"": ""2"", ""TagName"": ""no param""}, {""TagWeight"": ""2"", ""TagName"": ""no return""}]",6,Programming Language II_649
+2687,Exam2,Jennifer Lin___Status:True,7,"7.Using the following grading scale and the method written in #2 to ensure only valid grades are counted, write the decision logic that correctly counts the number of valid letter grades in each grade category.  You do NOT need to write an entire method, only the logic: A_MIN <=  A  <= MAX_GRADE B_MIN <=  B  < A_MIN C_MIN <=  C  < B_MIN MIN_GRADE <=  F  < C_MIN",1,TRUE,"if(isValidGrade(aGrade)){
+if(aGrade >= A_MIN)
+numA++;
+else if(aGrade >= B_MIN)
+numB++;
+else if(aGrade >= C_MIN)
+numC++;
+else
+numF++;
+}
+","[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""1"", ""TagName"": ""Access control""}, {""TagWeight"": ""2"", ""TagName"": ""if else""}, {""TagWeight"": ""1"", ""TagName"": ""variables""}]",6,Programming Language II_649
+2688,Exam2,Jennifer Lin___Status:True,8,"8.Given the following code, write a while loop that prompts a user to input a number from 0 to 100 and displays the number to the console.  The loop continues until the user enters a 'q' or 'Q'.  Must use the method of the String class that determines String equality regardless of case! String msg = “Please enter a number from 0 to 100 or Q to quit”;
+JoptionPane.showInputDialog(msg): String
+Double.parseDouble(input): double
+",1,TRUE,"String input = “”;
+while(!input.equalsIgnoreCase(“Q”))
+{
+input  = JoptionPane.showInputDialog(msg);
+if(!input.equalsIgnoreCase(“Q”))
+{
+double aNumber = Double.parseDouble(input);
+System.out.println(aNumber);
+}
+}
+","[{""TagWeight"": ""2"", ""TagName"": ""if else""}, {""TagWeight"": ""2"", ""TagName"": ""while""}, {""TagWeight"": ""2"", ""TagName"": ""String method""}]",6,Programming Language II_649
+2689,Exam2,Jennifer Lin___Status:True,9,"9.Write the following for loop as a while loop:
+for(int i = 0; i <= 10; i++)
+{
+System.out.println(i);
+}
+",1,TRUE,"int i = 0;
+while(i <= 10)
+{
+System.out.println(i);
+i++;
+}
+","[{""TagWeight"": ""2"", ""TagName"": ""while""}, {""TagWeight"": ""2"", ""TagName"": ""variables""}]",6,Programming Language II_649
+2690,Exam2,Jennifer Lin___Status:True,10,10.Write a for loop that calculates aNumber where aNumber is a positive integer.  You may assume  aNumber has been initialized. Display the final result to the console:,1,TRUE,"int factorial = 1;
+for(int i = 1; i <= aNumber; i++)
+{
+factorial = factorial * i;
+}
+System.out.println(factorial);
+","[{""TagWeight"": ""2"", ""TagName"": ""loop""}, {""TagWeight"": ""2"", ""TagName"": ""system.out.println""}, {""TagWeight"": ""2"", ""TagName"": ""arithmatics""}]",6,Programming Language II_649
+2691,Exam2,Jennifer Lin___Status:True,11,"11.Rewrite the following do loop into a while loop.int n = 1;
+double x = 0;
+double s;
+do
+{
+s = 1.0 / (n * n);
+x = x + s;
+n++;
+}while (s > 0.01);
+",1,TRUE,"int n = 1;
+double x = 0;
+double s = 1.0 / (n * n);
+x = x + s;
+n++;
+while (s > 0.01){
+s = 1.0 / (n * n);
+x = x + s;
+n++;
+}
+","[{""TagWeight"": ""2"", ""TagName"": ""while""}, {""TagWeight"": ""2"", ""TagName"": ""variables""}]",6,Programming Language II_649
+2692,Exam2,Jennifer Lin___Status:True,12,"12.Implement max(double x, double y, double z):double using math functionality in the Java library.  The method returns the largest of the 3 parameters passed to it (method body can be written in 1 line of code!): ",1,TRUE,"public double max(double x, double y, double z)
+{
+return Math.max(Math.max(x,y), z);
+}
+","[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""static usage""}, {""TagWeight"": ""2"", ""TagName"": ""variables""}]",6,Programming Language II_649
+2693,Exam2,Jennifer Lin___Status:True,13,"13.Evaluate the following expressions (be sure to indicate the correct type for your answer, eg. (type ) answer )",1,TRUE,"12 % 4 = 0
+12 / 4 = 3
+12 / 4.0 = 3.0
+","[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",3,Programming Language II_649
+2694,Exam2,Jennifer Lin___Status:True,14,"14.What is the output of the following code?
+int x = 1 ;
+x++ ;
+x = x + 1 ;
+x-- ;
+System.out.println(x) ;
+",1,TRUE,2,"[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",3,Programming Language II_649
+2695,Exam2,Jennifer Lin___Status:True,15,"15.What is the output of the following println statements?
+int num1 = 8 ;
+String num2 = “8” ;System.out.println(num1+num2) ;
+System.out.println(num1+num1) ;
+",1,TRUE,"88, 16","[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",3,Programming Language II_649
+2696,Exam2,Jennifer Lin___Status:True,16,"16.What is the final value of the variable result? public class Tester {
+public static void main(String[] args) {
+int result = (int)Math.PI + 11;
+}
+}
+",1,TRUE,14,"[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",3,Programming Language II_649
+2697,Exam2,Jennifer Lin___Status:True,17,"17.In JAVA, a constant is declared with the keyword:
+a. const
+b. static
+c. final
+d. constant
+",1,TRUE,c,"[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",3,Programming Language II_649
+2698,Exam2,Jennifer Lin___Status:True,18,"18.What is displayed to the console by the following code? double aDouble = 10.0 / 8;
+int anInt = Math.round(aDouble);
+System.out.println(anInt);
+a. 2
+b. 1.0
+c. 1
+d. Compiler error
+",1,TRUE,d,"[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",3,Programming Language II_649
+2699,Exam2,Jennifer Lin___Status:True,19,"19.Which of the following converts a decimal number to an integer number,a. int decimal = 4.35 ;
+float integer = (int) decimal ;
+b. double decimal = 4.35 ;
+integer int = (integer) decimal ;
+c. double decimal = 4.35 ;
+short integer = (short) decimal ;
+d. double decimal = 4.35 ;
+int integer = decimal ;
+",1,TRUE,c,"[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",3,Programming Language II_649
+2700,Exam2,Jennifer Lin___Status:True,20,"20.What is the final value of sum displayed to the console:
+for(int i = 0; i < 5; i++)
+{
+int sum = 0;
+sum = sum + i;
+System.out.println(sum);
+}
+a. 5
+b. 10
+c. 15
+d. Compiler error
+e. None of the above
+",1,TRUE,e,"[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",3,Programming Language II_649
+2701,Exam2,Jennifer Lin___Status:True,21,"21.What is the output of the following code:
+int x = 1;
+int y = 2;
+if(x != y)
+System.out.println(“x != y”);
+if(x = y)
+System.out.println(“x = y”);
+a. x = y
+b. x != y
+c. x != y
+x = y
+d. Compiler error
+",1,TRUE,d,"[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",3,Programming Language II_649
+2702,Exam2,Jennifer Lin___Status:True,22,"22.What is displayed to the console by the following code:
+Double d = 4.5;
+Integer i = 2;
+double sum  = d + i;
+System.out.println(sum);
+a. 6
+b. 6.5
+c. Compiler error
+d. Runtime error
+",1,TRUE,b,"[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",3,Programming Language II_649
+2703,Exam2,Jennifer Lin___Status:True,23,"23.What is the final value of result ?
+public class Tester {
+public static void main(String[] args) {
+int i = 2 * 2;
+int result = 0;
+if ( i > 5 ) {
+if ( i % 2 > 0 )
+result++;
+else
+result--;
+} else if ( i > 2 ) {
+result = i % 2;
+} else {
+result = 100;
+}
+}
+}
+",1,TRUE,0,"[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",3,Programming Language II_649
+2704,disable2017-05-23 23:44:58.410000test2,Jennifer Lin___Status:True,1,1.Write the Java code that calculates the value of S (a decimal number) in the following equation. Use math methods in the Java library.  Variable names must be descriptive. S = (   ( ∑ Ai2  -  ( (∑ Ai)2  / x )  )  /  ( x – 1)   )1/2,1,TRUE,"Math.sqrt( (sumOfASquared – (Math.pow(sumOfA, 2) / x) ) / (x – 1) )","[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",6,Programming Language II_649
+2705,disable2017-05-23 23:51:58.717000test3,Jennifer Lin___Status:True,1,1.Write the Java code that calculates the value of S (a decimal number) in the following equation. Use math methods in the Java library.  Variable names must be descriptive. S = (   ( ∑ Ai2  -  ( (∑ Ai)2  / x )  )  /  ( x – 1)   )1/2,1,TRUE,"Math.sqrt( (sumOfASquared – (Math.pow(sumOfA, 2) / x) ) / (x – 1) )","[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",6,Programming Language II_649
+2706,disable2017-05-23 23:51:58.717000test3,Jennifer Lin___Status:True,2,2.Write the Java code that calculates the value of S (a decimal number) in the following equation. Use math methods in the Java library.  Variable names must be descriptive. S = (   ( ∑ Ai2  -  ( (∑ Ai)2  / x )  )  /  ( x – 1)   )1/2,1,TRUE,"Math.sqrt( (sumOfASquared – (Math.pow(sumOfA, 2) / x) ) / (x – 1) )","[{""TagWeight"": ""1"", ""TagName"": ""Method problem""}, {""TagWeight"": ""3"", ""TagName"": ""Arithmatics""}]",6,Programming Language II_649
+2707,disable2017-05-23 23:51:58.717000test3,Jennifer Lin___Status:True,3,3.Write the Java code that calculates the value of S (a decimal number) in the following equation. Use math methods in the Java library.  Variable names must be descriptive. S = (   ( ∑ Ai2  -  ( (∑ Ai)2  / x )  )  /  ( x – 1)   )1/2,1,TRUE,"Math.sqrt( (sumOfASquared – (Math.pow(sumOfA, 2) / x) ) / (x – 1) )","[{""TagWeight"": ""0"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",6,Programming Language II_649
+2708,disable2017-05-23 23:51:58.717000test3,Jennifer Lin___Status:True,4,4.Write the Java code that calculates the value of S (a decimal number) in the following equation. Use math methods in the Java library.  Variable names must be descriptive. S = (   ( ∑ Ai2  -  ( (∑ Ai)2  / x )  )  /  ( x – 1)   )1/2,1,TRUE,"Math.sqrt( (sumOfASquared – (Math.pow(sumOfA, 2) / x) ) / (x – 1) )","[{""TagWeight"": ""0"", ""TagName"": ""Method problem""}, {""TagWeight"": ""3"", ""TagName"": ""Arithmatics""}]",6,Programming Language II_649
+2709,disable2017-05-30 22:45:03.480000testt,Jennifer Lin___Status:True,1,1.Write the Java code that calculates the value of S (a decimal number) in the following equation. Use math methods in the Java library.  Variable names must be descriptive. S = (   ( ∑ Ai2  -  ( (∑ Ai)2  / x )  )  /  ( x – 1)   )1/2,1,TRUE,"Math.sqrt( (sumOfASquared – (Math.pow(sumOfA, 2) / x) ) / (x – 1) )","[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",6,Programming Language II_649
+2710,disable2017-05-30 22:45:03.480000testt,Jennifer Lin___Status:True,2,2.Write the Java code that calculates the value of S (a decimal number) in the following equation. Use math methods in the Java library.  Variable names must be descriptive. S = (   ( ∑ Ai2  -  ( (∑ Ai)2  / x )  )  /  ( x – 1)   )1/2,1,TRUE,"Math.sqrt( (sumOfASquared – (Math.pow(sumOfA, 2) / x) ) / (x – 1) )","[{""TagWeight"": ""1"", ""TagName"": ""Method problem""}, {""TagWeight"": ""3"", ""TagName"": ""Arithmatics""}]",6,Programming Language II_649
+2711,disable2017-05-30 22:45:03.480000testt,Jennifer Lin___Status:True,3,3.Write the Java code that calculates the value of S (a decimal number) in the following equation. Use math methods in the Java library.  Variable names must be descriptive. S = (   ( ∑ Ai2  -  ( (∑ Ai)2  / x )  )  /  ( x – 1)   )1/2,1,TRUE,"Math.sqrt( (sumOfASquared – (Math.pow(sumOfA, 2) / x) ) / (x – 1) )","[{""TagWeight"": ""0"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",6,Programming Language II_649
+2712,disable2017-05-30 22:45:03.480000testt,Jennifer Lin___Status:True,4,4.Write the Java code that calculates the value of S (a decimal number) in the following equation. Use math methods in the Java library.  Variable names must be descriptive. S = (   ( ∑ Ai2  -  ( (∑ Ai)2  / x )  )  /  ( x – 1)   )1/2,1,TRUE,"Math.sqrt( (sumOfASquared – (Math.pow(sumOfA, 2) / x) ) / (x – 1) )","[{""TagWeight"": ""0"", ""TagName"": ""Method problem""}, {""TagWeight"": ""3"", ""TagName"": ""Arithmatics""}]",6,Programming Language II_649
+2713,disable2017-05-31 01:13:10.492000test for multiple test,Jennifer Lin___Status:True,1,"1.Write the Java code that calculates the value of S (a decimal number) in the following equation. Use math methods in the Java library.  Variable names must be descriptive. S = (   ( ∑ Ai2  -  ( (∑ Ai)2  / x )  )  /  ( x – 1)   )1/2 /n2.Please convert the following JAVA expression to Math expression. y  =  ( - b  + Math.sqrt( b * b – 4  * a * c) ) / ( 2 * a )/n 3.In assignment #2, the public interface of the Easter class contains a class method called calculateEaster(aYear):String.  Write the code in the EasterTester class that calls this method for the year 2000 and displays the result to the console",1,TRUE,"Math.sqrt( (sumOfASquared – (Math.pow(sumOfA, 2) / x) ) / (x – 1) )
+(-b + (b^2 - 4*a*c)^(1/2)) / 2*a
+System.out.println(Easter.calculateEaster(2000));","[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",6,Programming Language II_649
+2714,disable2017-05-31 01:13:10.492000test for multiple test,Jennifer Lin___Status:True,2,"4.Given these variables, int day = 22 ; String month = “May” ; int year = 2015 ; Use string concatenation to write a single Java statement that displays the following to the console:   Hugh was born on May 22, 2015 /n5.Write the method (hint : isValidGrade)  in assignment #3 that determines whether a grade is within a valid grade range.  Your code may assume that appropriate constants for the max and min grades have been declared in the class: 6.Add Javadoc annotations to the method written in #2.  Simply rewrite it as an empty method and add the annotations here.",1,TRUE,"System.out.println(“Your birthday is ”+month+” “+day+”, ”+year);/n public boolean isValidGrade(double aGrade){ return (aGrade >= MIN_GRADE && aGrade <= MAX_GRADE);}/n /** Determines whether a grade is within acceptable range
+@param aGrade grade entered by user
+@return grade is valid when MIN_GRADE <= aGrade <= MAX_GRADE
+*/","[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",6,Programming Language II_649
+2715,disable2017-05-31 01:13:10.492000test for multiple test,Jennifer Lin___Status:True,3,"7.Using the following grading scale and the method written in #2 to ensure only valid grades are counted, write the decision logic that correctly counts the number of valid letter grades in each grade category.  You do NOT need to write an entire method, only the logic: A_MIN <=  A  <= MAX_GRADE B_MIN <=  B  < A_MIN C_MIN <=  C  < B_MIN MIN_GRADE <=  F  < C_MIN /n 8.Given the following code, write a while loop that prompts a user to input a number from 0 to 100 and displays the number to the console.  The loop continues until the user enters a 'q' or 'Q'.  Must use the method of the String class that determines String equality regardless of case! String msg = “Please enter a number from 0 to 100 or Q to quit”;
+JoptionPane.showInputDialog(msg): String
+Double.parseDouble(input): double
+",1,TRUE,"if(isValidGrade(aGrade)){
+if(aGrade >= A_MIN)
+numA++;
+else if(aGrade >= B_MIN)
+numB++;
+else if(aGrade >= C_MIN)
+numC++;
+else
+numF++;
+}
+String input = “”;
+while(!input.equalsIgnoreCase(“Q”))
+{
+input  = JoptionPane.showInputDialog(msg);
+if(!input.equalsIgnoreCase(“Q”))
+{
+double aNumber = Double.parseDouble(input);
+System.out.println(aNumber);
+}
+}
+","[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",6,Programming Language II_649
+2716,disable2017-05-31 21:54:55.642000twsrrr,Jennifer Lin___Status:True,1,"1.Write the Java code that calculates the value of S (a decimal number) in the following equation. Use math methods in the Java library.  Variable names must be descriptive. S = (   ( ∑ Ai2  -  ( (∑ Ai)2  / x )  )  /  ( x – 1)   )1/2 /n2.Please convert the following JAVA expression to Math expression. y  =  ( - b  + Math.sqrt( b * b – 4  * a * c) ) / ( 2 * a )/n 3.In assignment #2, the public interface of the Easter class contains a class method called calculateEaster(aYear):String.  Write the code in the EasterTester class that calls this method for the year 2000 and displays the result to the console",1,TRUE,"Math.sqrt( (sumOfASquared – (Math.pow(sumOfA, 2) / x) ) / (x – 1) )
+(-b + (b^2 - 4*a*c)^(1/2)) / 2*a
+System.out.println(Easter.calculateEaster(2000));","[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",6,Programming Language II_649
+2717,disable2017-05-31 21:54:55.642000twsrrr,Jennifer Lin___Status:True,2,"4.Given these variables, int day = 22 ; String month = “May” ; int year = 2015 ; Use string concatenation to write a single Java statement that displays the following to the console:   Hugh was born on May 22, 2015 /n5.Write the method (hint : isValidGrade)  in assignment #3 that determines whether a grade is within a valid grade range.  Your code may assume that appropriate constants for the max and min grades have been declared in the class: 6.Add Javadoc annotations to the method written in #2.  Simply rewrite it as an empty method and add the annotations here.",1,TRUE,"System.out.println(“Your birthday is ”+month+” “+day+”, ”+year);/n public boolean isValidGrade(double aGrade){ return (aGrade >= MIN_GRADE && aGrade <= MAX_GRADE);}/n /** Determines whether a grade is within acceptable range
+@param aGrade grade entered by user
+@return grade is valid when MIN_GRADE <= aGrade <= MAX_GRADE
+*/","[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",6,Programming Language II_649
+2718,disable2017-05-31 21:54:55.642000twsrrr,Jennifer Lin___Status:True,3,"7.Using the following grading scale and the method written in #2 to ensure only valid grades are counted, write the decision logic that correctly counts the number of valid letter grades in each grade category.  You do NOT need to write an entire method, only the logic: A_MIN <=  A  <= MAX_GRADE B_MIN <=  B  < A_MIN C_MIN <=  C  < B_MIN MIN_GRADE <=  F  < C_MIN /n 8.Given the following code, write a while loop that prompts a user to input a number from 0 to 100 and displays the number to the console.  The loop continues until the user enters a 'q' or 'Q'.  Must use the method of the String class that determines String equality regardless of case! String msg = “Please enter a number from 0 to 100 or Q to quit”;
+JoptionPane.showInputDialog(msg): String
+Double.parseDouble(input): double
+",1,TRUE,"if(isValidGrade(aGrade)){
+if(aGrade >= A_MIN)
+numA++;
+else if(aGrade >= B_MIN)
+numB++;
+else if(aGrade >= C_MIN)
+numC++;
+else
+numF++;
+}
+String input = “”;
+while(!input.equalsIgnoreCase(“Q”))
+{
+input  = JoptionPane.showInputDialog(msg);
+if(!input.equalsIgnoreCase(“Q”))
+{
+double aNumber = Double.parseDouble(input);
+System.out.println(aNumber);
+}
+}
+","[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",6,Programming Language II_649
+2719,disable2017-06-01 18:56:59.771000testwww,Jennifer Lin___Status:True,1,"1.Write the Java code that calculates the value of S (a decimal number) in the following equation. Use math methods in the Java library.  Variable names must be descriptive. S = (   ( ∑ Ai2  -  ( (∑ Ai)2  / x )  )  /  ( x – 1)   )1/2 /n2.Please convert the following JAVA expression to Math expression. y  =  ( - b  + Math.sqrt( b * b – 4  * a * c) ) / ( 2 * a )/n 3.In assignment #2, the public interface of the Easter class contains a class method called calculateEaster(aYear):String.  Write the code in the EasterTester class that calls this method for the year 2000 and displays the result to the console",1,TRUE,"1. Math.sqrt( (sumOfASquared – (Math.pow(sumOfA, 2) / x) ) / (x – 1) )
+2. (-b + (b^2 - 4*a*c)^(1/2)) / 2*a
+3. System.out.println(Easter.calculateEaster(2000));","[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",6,Programming Language II_649
+2720,disable2017-06-01 18:56:59.771000testwww,Jennifer Lin___Status:True,2,"4.Given these variables, int day = 22 ; String month = “May” ; int year = 2015 ; Use string concatenation to write a single Java statement that displays the following to the console:   Hugh was born on May 22, 2015 /n5.Write the method (hint : isValidGrade)  in assignment #3 that determines whether a grade is within a valid grade range.  Your code may assume that appropriate constants for the max and min grades have been declared in the class: 6.Add Javadoc annotations to the method written in #2.  Simply rewrite it as an empty method and add the annotations here.",1,TRUE,"4. System.out.println(“Your birthday is ”+month+” “+day+”, ”+year);/n 5. public boolean isValidGrade(double aGrade){ return (aGrade >= MIN_GRADE && aGrade <= MAX_GRADE);}/n 6. /** Determines whether a grade is within acceptable range
+@param aGrade grade entered by user
+@return grade is valid when MIN_GRADE <= aGrade <= MAX_GRADE
+*/","[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",6,Programming Language II_649
+2721,disable2017-06-01 18:56:59.771000testwww,Jennifer Lin___Status:True,3,"7.Using the following grading scale and the method written in #2 to ensure only valid grades are counted, write the decision logic that correctly counts the number of valid letter grades in each grade category.  You do NOT need to write an entire method, only the logic: A_MIN <=  A  <= MAX_GRADE B_MIN <=  B  < A_MIN C_MIN <=  C  < B_MIN MIN_GRADE <=  F  < C_MIN /n 8.Given the following code, write a while loop that prompts a user to input a number from 0 to 100 and displays the number to the console.  The loop continues until the user enters a 'q' or 'Q'.  Must use the method of the String class that determines String equality regardless of case! String msg = “Please enter a number from 0 to 100 or Q to quit”;
+JoptionPane.showInputDialog(msg): String
+Double.parseDouble(input): double
+",1,TRUE,"7. if(isValidGrade(aGrade)){
+if(aGrade >= A_MIN)
+numA++;
+else if(aGrade >= B_MIN)
+numB++;
+else if(aGrade >= C_MIN)
+numC++;
+else
+numF++;
+}
+String input = “”;
+while(!input.equalsIgnoreCase(“Q”))
+{
+input  = JoptionPane.showInputDialog(msg);
+if(!input.equalsIgnoreCase(“Q”))
+{
+double aNumber = Double.parseDouble(input);
+System.out.println(aNumber);
+}
+}
+","[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",6,Programming Language II_649
+2722,disable2017-06-01 18:56:59.771000testwww,Jennifer Lin___Status:True,4,"8.Given the following code, write a while loop that prompts a user to input a number from 0 to 100 and displays the number to the console.  The loop continues until the user enters a 'q' or 'Q'.  Must use the method of the String class that determines String equality regardless of case! String msg = “Please enter a number from 0 to 100 or Q to quit”;
+JoptionPane.showInputDialog(msg): String
+Double.parseDouble(input): double
+",1,TRUE,"String input = “”;
+while(!input.equalsIgnoreCase(“Q”))
+{
+input  = JoptionPane.showInputDialog(msg);
+if(!input.equalsIgnoreCase(“Q”))
+{
+double aNumber = Double.parseDouble(input);
+System.out.println(aNumber);
+}
+}
+","[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",6,Programming Language II_649
+2723,disable2017-06-01 18:56:59.771000testwww,Jennifer Lin___Status:True,5,"9.Write the following for loop as a while loop:
+for(int i = 0; i <= 10; i++)
+{
+System.out.println(i);
+}
+10.Write a for loop that calculates aNumber where aNumber is a positive integer.  You may assume  aNumber has been initialized. Display the final result to the console:",1,TRUE,"9. int i = 0;
+while(i <= 10)
+{
+System.out.println(i);
+i++;
+}
+10. int factorial = 1;
+for(int i = 1; i <= aNumber; i++)
+{
+factorial = factorial * i;
+}
+System.out.println(factorial);
+","[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",6,Programming Language II_649
+2724,disable2017-06-01 18:56:59.771000testwww,Jennifer Lin___Status:True,6,"11.Rewrite the following do loop into a while loop.int n = 1;
+double x = 0;
+double s;
+do
+{
+s = 1.0 / (n * n);
+x = x + s;
+n++;
+}while (s > 0.01);
+12.Implement max(double x, double y, double z):double using math functionality in the Java library.  The method returns the largest of the 3 parameters passed to it (method body can be written in 1 line of code!): ",1,TRUE,"11. int n = 1;
+double x = 0;
+double s = 1.0 / (n * n);
+x = x + s;
+n++;
+while (s > 0.01){
+s = 1.0 / (n * n);
+x = x + s;
+n++;
+}
+12. public double max(double x, double y, double z)
+{
+return Math.max(Math.max(x,y), z);
+}
+","[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",4,Programming Language II_649
+2725,disable2017-06-01 18:56:59.771000testwww,Jennifer Lin___Status:True,7,"13.Evaluate the following expressions (be sure to indicate the correct type for your answer, eg. (type ) answer ) 14.14.What is the output of the following code?
+int x = 1 ;
+x++ ;
+x = x + 1 ;
+x-- ;
+System.out.println(x) ;
+15.What is the output of the following println statements?
+int num1 = 8 ;
+String num2 = “8” ;System.out.println(num1+num2) ;
+System.out.println(num1+num1) ;
+16. 16.What is the final value of the variable result? public class Tester {
+public static void main(String[] args) {
+int result = (int)Math.PI + 11;
+}
+}
+17.In JAVA, a constant is declared with the keyword:
+a. const
+b. static
+c. final
+d. constant
+18.What is displayed to the console by the following code? double aDouble = 10.0 / 8;
+int anInt = Math.round(aDouble);
+System.out.println(anInt);
+a. 2
+b. 1.0
+c. 1
+d. Compiler error
+",1,TRUE,"13. 12 % 4 = 0
+12 / 4 = 3
+12 / 4.0 = 3.0
+14. 2
+15. 88, 16
+16. 14
+17. 14
+18. d
+","[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",4,Programming Language II_649
+2726,disable2017-06-01 18:56:59.771000testwww,Jennifer Lin___Status:True,8,"19.Which of the following converts a decimal number to an integer number,a. int decimal = 4.35 ;
+float integer = (int) decimal ;
+b. double decimal = 4.35 ;
+integer int = (integer) decimal ;
+c. double decimal = 4.35 ;
+short integer = (short) decimal ;
+d. double decimal = 4.35 ;
+int integer = decimal ;
+20.What is the final value of sum displayed to the console:
+for(int i = 0; i < 5; i++)
+{
+int sum = 0;
+sum = sum + i;
+System.out.println(sum);
+}
+a. 5
+b. 10
+c. 15
+d. Compiler error
+e. None of the above
+21.What is the output of the following code:
+int x = 1;
+int y = 2;
+if(x != y)
+System.out.println(“x != y”);
+if(x = y)
+System.out.println(“x = y”);
+a. x = y
+b. x != y
+c. x != y
+x = y
+d. Compiler error
+",1,TRUE,"19. c
+20. e
+21. d","[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",4,Programming Language II_649
+2727,disable2017-06-01 18:56:59.771000testwww,Jennifer Lin___Status:True,9,"22.What is displayed to the console by the following code:
+Double d = 4.5;
+Integer i = 2;
+double sum  = d + i;
+System.out.println(sum);
+a. 6
+b. 6.5
+c. Compiler error
+d. Runtime error
+23.What is the final value of result ?
+public class Tester {
+public static void main(String[] args) {
+int i = 2 * 2;
+int result = 0;
+if ( i > 5 ) {
+if ( i % 2 > 0 )
+result++;
+else
+result--;
+} else if ( i > 2 ) {
+result = i % 2;
+} else {
+result = 100;
+}
+}
+}
+",1,TRUE,"22. b
+23. 0","[{""TagWeight"": ""2"", ""TagName"": ""Method problem""}, {""TagWeight"": ""2"", ""TagName"": ""Arithmatics""}]",4,Programming Language II_649
+2728,disable2017-06-01 19:54:29.410000Midterm2,Jennifer Lin___Status:True,1,"1.Write the Java code that calculates the value of S (a decimal number) in the following equation. Use math methods in the Java library.  Variable names must be descriptive. S = (   ( ∑ Ai2  -  ( (∑ Ai)2  / x )  )  /  ( x – 1)   )1/2 /n2.Please convert the following JAVA expression to Math expression. y  =  ( - b  + Math.sqrt( b * b – 4  * a * c) ) / ( 2 * a )/n 3.In assignment #2, the public interface of the Easter class contains a class method called calculateEaster(aYear):String.  Write the code in the EasterTester class that calls this method for the year 2000 and displays the result to the console",1,TRUE,"1. Math.sqrt( (sumOfASquared – (Math.pow(sumOfA, 2) / x) ) / (x – 1) )
+2. (-b + (b^2 - 4*a*c)^(1/2)) / 2*a
+3. System.out.println(Easter.calculateEaster(2000));","[{""TagWeight"": ""6"", ""TagName"": ""Mathematical and java expressions""}, {""TagWeight"": ""6"", ""TagName"": ""Arithmetic operators""}, {""TagWeight"": ""6"", ""TagName"": ""Calling static method""}]",18,Programming Language II_649
+2729,disable2017-06-01 19:54:29.410000Midterm2,Jennifer Lin___Status:True,2,"4.Given these variables, int day = 22 ; String month = “May” ; int year = 2015 ; Use string concatenation to write a single Java statement that displays the following to the console:   Hugh was born on May 22, 2015 /n5.Write the method (hint : isValidGrade)  in assignment #3 that determines whether a grade is within a valid grade range.  Your code may assume that appropriate constants for the max and min grades have been declared in the class: 6.Add Javadoc annotations to the method written in #2.  Simply rewrite it as an empty method and add the annotations here.",1,TRUE,"4. System.out.println(“Your birthday is ”+month+” “+day+”, ”+year);/n 5. public boolean isValidGrade(double aGrade){ return (aGrade >= MIN_GRADE && aGrade <= MAX_GRADE);}/n 6. /** Determines whether a grade is within acceptable range
+@param aGrade grade entered by user
+@return grade is valid when MIN_GRADE <= aGrade <= MAX_GRADE
+*/","[{""TagWeight"": ""6"", ""TagName"": ""String concatenation""}, {""TagWeight"": ""6"", ""TagName"": ""if-else, Boolean type, values, predicate methods""}, {""TagWeight"": ""6"", ""TagName"": ""javadoc""}]",18,Programming Language II_649
+2730,disable2017-06-01 19:54:29.410000Midterm2,Jennifer Lin___Status:True,3,"7.Using the following grading scale and the method written in #2 to ensure only valid grades are counted, write the decision logic that correctly counts the number of valid letter grades in each grade category.  You do NOT need to write an entire method, only the logic: A_MIN <=  A  <= MAX_GRADE B_MIN <=  B  < A_MIN C_MIN <=  C  < B_MIN MIN_GRADE <=  F  < C_MIN /n 8.Given the following code, write a while loop that prompts a user to input a number from 0 to 100 and displays the number to the console.  The loop continues until the user enters a 'q' or 'Q'.  Must use the method of the String class that determines String equality regardless of case! String msg = “Please enter a number from 0 to 100 or Q to quit”;
+JoptionPane.showInputDialog(msg): String
+Double.parseDouble(input): double
+",1,TRUE,"7. if(isValidGrade(aGrade)){
+if(aGrade >= A_MIN)
+numA++;
+else if(aGrade >= B_MIN)
+numB++;
+else if(aGrade >= C_MIN)
+numC++;
+else
+numF++;
+}
+String input = “”;
+while(!input.equalsIgnoreCase(“Q”))
+{
+input  = JoptionPane.showInputDialog(msg);
+if(!input.equalsIgnoreCase(“Q”))
+{
+double aNumber = Double.parseDouble(input);
+System.out.println(aNumber);
+}
+}
+","[{""TagWeight"": ""6"", ""TagName"": ""nested if, comparing numbers, strings""}, {""TagWeight"": ""6"", ""TagName"": ""Boolean type, values, predicate methods, Understand if""}]",12,Programming Language II_649
+2731,disable2017-06-01 19:54:29.410000Midterm2,Jennifer Lin___Status:True,4,"9.Write the following for loop as a while loop:
+for(int i = 0; i <= 10; i++)
+{
+System.out.println(i);
+}
+10.Write a for loop that calculates aNumber where aNumber is a positive integer.  You may assume  aNumber has been initialized. Display the final result to the console:",1,TRUE,"9. int i = 0;
+while(i <= 10)
+{
+System.out.println(i);
+i++;
+}
+10. int factorial = 1;
+for(int i = 1; i <= aNumber; i++)
+{
+factorial = factorial * i;
+}
+System.out.println(factorial);
+","[{""TagWeight"": ""6"", ""TagName"": ""Convert 1 kind of loop to another kind of loop""}, {""TagWeight"": ""6"", ""TagName"": ""Understand for while loop""}]",12,Programming Language II_649
+2732,disable2017-06-01 19:54:29.410000Midterm2,Jennifer Lin___Status:True,5,"11.Rewrite the following do loop into a while loop.int n = 1;
+double x = 0;
+double s;
+do
+{
+s = 1.0 / (n * n);
+x = x + s;
+n++;
+}while (s > 0.01);
+12.Implement max(double x, double y, double z):double using math functionality in the Java library.  The method returns the largest of the 3 parameters passed to it (method body can be written in 1 line of code!): ",1,TRUE,"11. int n = 1;
+double x = 0;
+double s = 1.0 / (n * n);
+x = x + s;
+n++;
+while (s > 0.01){
+s = 1.0 / (n * n);
+x = x + s;
+n++;
+}
+12. public double max(double x, double y, double z)
+{
+return Math.max(Math.max(x,y), z);
+}
+","[{""TagWeight"": ""4"", ""TagName"": ""Convert 1 kind of loop to another kind of loop""}, {""TagWeight"": ""4"", ""TagName"": ""Mathematical and java expressions""}]",8,Programming Language II_649
+2733,disable2017-06-01 19:54:29.410000Midterm2,Jennifer Lin___Status:True,6,"13.Evaluate the following expressions (be sure to indicate the correct type for your answer, eg. (type ) answer ) 14.14.What is the output of the following code?
+int x = 1 ;
+x++ ;
+x = x + 1 ;
+x-- ;
+System.out.println(x) ;
+15.What is the output of the following println statements?
+int num1 = 8 ;
+String num2 = “8” ;System.out.println(num1+num2) ;
+System.out.println(num1+num1) ;
+16. 16.What is the final value of the variable result? public class Tester {
+public static void main(String[] args) {
+int result = (int)Math.PI + 11;
+}
+}
+17.In JAVA, a constant is declared with the keyword:
+a. const
+b. static
+c. final
+d. constant
+18.What is displayed to the console by the following code? double aDouble = 10.0 / 8;
+int anInt = Math.round(aDouble);
+System.out.println(anInt);
+a. 2
+b. 1.0
+c. 1
+d. Compiler error
+",1,TRUE,"13. 12 % 4 = 0
+12 / 4 = 3
+12 / 4.0 = 3.0
+14. 2
+15. 88, 16
+16. 14
+17. 14
+18. d
+","[{""TagWeight"": ""3"", ""TagName"": ""Arithmetic operators""}, {""TagWeight"": ""3"", ""TagName"": ""increment/decrement operators""}, {""TagWeight"": ""3"", ""TagName"": ""increment/decrement operators""}, {""TagWeight"": ""3"", ""TagName"": ""Arithmetic operators""}, {""TagWeight"": ""3"", ""TagName"": ""Arithmetic operators, assignment operators""}]",15,Programming Language II_649
+2734,disable2017-06-01 19:54:29.410000Midterm2,Jennifer Lin___Status:True,7,"19.Which of the following converts a decimal number to an integer number,a. int decimal = 4.35 ;
+float integer = (int) decimal ;
+b. double decimal = 4.35 ;
+integer int = (integer) decimal ;
+c. double decimal = 4.35 ;
+short integer = (short) decimal ;
+d. double decimal = 4.35 ;
+int integer = decimal ;
+20.What is the final value of sum displayed to the console:
+for(int i = 0; i < 5; i++)
+{
+int sum = 0;
+sum = sum + i;
+System.out.println(sum);
+}
+a. 5
+b. 10
+c. 15
+d. Compiler error
+e. None of the above
+21.What is the output of the following code:
+int x = 1;
+int y = 2;
+if(x != y)
+System.out.println(“x != y”);
+if(x = y)
+System.out.println(“x = y”);
+a. x = y
+b. x != y
+c. x != y
+x = y
+d. Compiler error
+",1,TRUE,"19. c
+20. e
+21. d","[{""TagWeight"": ""3"", ""TagName"": ""Number types limitation""}, {""TagWeight"": ""3"", ""TagName"": ""Understand For loop""}, {""TagWeight"": ""3"", ""TagName"": ""assignment operators""}]",9,Programming Language II_649
+2735,disable2017-06-01 19:54:29.410000Midterm2,Jennifer Lin___Status:True,8,"22.What is displayed to the console by the following code:
+Double d = 4.5;
+Integer i = 2;
+double sum  = d + i;
+System.out.println(sum);
+a. 6
+b. 6.5
+c. Compiler error
+d. Runtime error
+23.What is the final value of result ?
+public class Tester {
+public static void main(String[] args) {
+int i = 2 * 2;
+int result = 0;
+if ( i > 5 ) {
+if ( i % 2 > 0 )
+result++;
+else
+result--;
+} else if ( i > 2 ) {
+result = i % 2;
+} else {
+result = 100;
+}
+}
+}
+",1,TRUE,"22. b
+23. 0","[{""TagWeight"": ""3"", ""TagName"": ""Number types limitation""}, {""TagWeight"": ""3"", ""TagName"": ""nested if, if-else""}]",6,Programming Language II_649
+2736,disable2017-06-01 19:54:22.550000Midterm_2,Jennifer Lin___Status:True,1,"1.Write the Java code that calculates the value of S (a decimal number) in the following equation. Use math methods in the Java library.  Variable names must be descriptive. S = (   ( ∑ Ai2  -  ( (∑ Ai)2  / x )  )  /  ( x – 1)   )1/2 /n2.Please convert the following JAVA expression to Math expression. y  =  ( - b  + Math.sqrt( b * b – 4  * a * c) ) / ( 2 * a )/n 3.In assignment #2, the public interface of the Easter class contains a class method called calculateEaster(aYear):String.  Write the code in the EasterTester class that calls this method for the year 2000 and displays the result to the console",1,TRUE,"1. Math.sqrt( (sumOfASquared – (Math.pow(sumOfA, 2) / x) ) / (x – 1) )
+2. (-b + (b^2 - 4*a*c)^(1/2)) / 2*a
+3. System.out.println(Easter.calculateEaster(2000));","[{""TagWeight"": ""6"", ""TagName"": ""Mathematical and java expressions""}, {""TagWeight"": ""6"", ""TagName"": ""Arithmetic operators""}, {""TagWeight"": ""6"", ""TagName"": ""Calling static method""}]",18,Programming Language II_649
+2737,disable2017-06-01 19:54:22.550000Midterm_2,Jennifer Lin___Status:True,2,"4.Given these variables, int day = 22 ; String month = “May” ; int year = 2015 ; Use string concatenation to write a single Java statement that displays the following to the console:   Hugh was born on May 22, 2015 /n5.Write the method (hint : isValidGrade)  in assignment #3 that determines whether a grade is within a valid grade range.  Your code may assume that appropriate constants for the max and min grades have been declared in the class: 6.Add Javadoc annotations to the method written in #2.  Simply rewrite it as an empty method and add the annotations here.",1,TRUE,"4. System.out.println(“Your birthday is ”+month+” “+day+”, ”+year);/n 5. public boolean isValidGrade(double aGrade){ return (aGrade >= MIN_GRADE && aGrade <= MAX_GRADE);}/n 6. /** Determines whether a grade is within acceptable range
+@param aGrade grade entered by user
+@return grade is valid when MIN_GRADE <= aGrade <= MAX_GRADE
+*/","[{""TagWeight"": ""6"", ""TagName"": ""String concatenation""}, {""TagWeight"": ""6"", ""TagName"": ""if-else, Boolean type, values, predicate methods""}, {""TagWeight"": ""6"", ""TagName"": ""javadoc""}]",18,Programming Language II_649
+2738,disable2017-06-01 19:54:22.550000Midterm_2,Jennifer Lin___Status:True,3,"7.Using the following grading scale and the method written in #2 to ensure only valid grades are counted, write the decision logic that correctly counts the number of valid letter grades in each grade category.  You do NOT need to write an entire method, only the logic: A_MIN <=  A  <= MAX_GRADE B_MIN <=  B  < A_MIN C_MIN <=  C  < B_MIN MIN_GRADE <=  F  < C_MIN /n 8.Given the following code, write a while loop that prompts a user to input a number from 0 to 100 and displays the number to the console.  The loop continues until the user enters a 'q' or 'Q'.  Must use the method of the String class that determines String equality regardless of case! String msg = “Please enter a number from 0 to 100 or Q to quit”;
+JoptionPane.showInputDialog(msg): String
+Double.parseDouble(input): double
+",1,TRUE,"7. if(isValidGrade(aGrade)){
+if(aGrade >= A_MIN)
+numA++;
+else if(aGrade >= B_MIN)
+numB++;
+else if(aGrade >= C_MIN)
+numC++;
+else
+numF++;
+}
+String input = “”;
+while(!input.equalsIgnoreCase(“Q”))
+{
+input  = JoptionPane.showInputDialog(msg);
+if(!input.equalsIgnoreCase(“Q”))
+{
+double aNumber = Double.parseDouble(input);
+System.out.println(aNumber);
+}
+}
+","[{""TagWeight"": ""6"", ""TagName"": ""nested if, comparing numbers, strings""}, {""TagWeight"": ""6"", ""TagName"": ""Boolean type, values, predicate methods, Understand if""}]",12,Programming Language II_649
+2739,disable2017-06-01 19:54:22.550000Midterm_2,Jennifer Lin___Status:True,4,"9.Write the following for loop as a while loop:
+for(int i = 0; i <= 10; i++)
+{
+System.out.println(i);
+}
+10.Write a for loop that calculates aNumber where aNumber is a positive integer.  You may assume  aNumber has been initialized. Display the final result to the console:",1,TRUE,"9. int i = 0;
+while(i <= 10)
+{
+System.out.println(i);
+i++;
+}
+10. int factorial = 1;
+for(int i = 1; i <= aNumber; i++)
+{
+factorial = factorial * i;
+}
+System.out.println(factorial);
+","[{""TagWeight"": ""6"", ""TagName"": ""Convert 1 kind of loop to another kind of loop""}, {""TagWeight"": ""6"", ""TagName"": ""Understand for while loop""}]",12,Programming Language II_649
+2740,disable2017-06-01 19:54:22.550000Midterm_2,Jennifer Lin___Status:True,5,"11.Rewrite the following do loop into a while loop.int n = 1;
+double x = 0;
+double s;
+do
+{
+s = 1.0 / (n * n);
+x = x + s;
+n++;
+}while (s > 0.01);
+12.Implement max(double x, double y, double z):double using math functionality in the Java library.  The method returns the largest of the 3 parameters passed to it (method body can be written in 1 line of code!): ",1,TRUE,"11. int n = 1;
+double x = 0;
+double s = 1.0 / (n * n);
+x = x + s;
+n++;
+while (s > 0.01){
+s = 1.0 / (n * n);
+x = x + s;
+n++;
+}
+12. public double max(double x, double y, double z)
+{
+return Math.max(Math.max(x,y), z);
+}
+","[{""TagWeight"": ""4"", ""TagName"": ""Convert 1 kind of loop to another kind of loop""}, {""TagWeight"": ""4"", ""TagName"": ""Mathematical and java expressions""}]",8,Programming Language II_649
+2741,disable2017-06-01 19:54:22.550000Midterm_2,Jennifer Lin___Status:True,6,"13.Evaluate the following expressions (be sure to indicate the correct type for your answer, eg. (type ) answer ) 14.14.What is the output of the following code?
+int x = 1 ;
+x++ ;
+x = x + 1 ;
+x-- ;
+System.out.println(x) ;
+15.What is the output of the following println statements?
+int num1 = 8 ;
+String num2 = “8” ;System.out.println(num1+num2) ;
+System.out.println(num1+num1) ;
+16. 16.What is the final value of the variable result? public class Tester {
+public static void main(String[] args) {
+int result = (int)Math.PI + 11;
+}
+}
+17.In JAVA, a constant is declared with the keyword:
+a. const
+b. static
+c. final
+d. constant
+18.What is displayed to the console by the following code? double aDouble = 10.0 / 8;
+int anInt = Math.round(aDouble);
+System.out.println(anInt);
+a. 2
+b. 1.0
+c. 1
+d. Compiler error
+",1,TRUE,"13. 12 % 4 = 0
+12 / 4 = 3
+12 / 4.0 = 3.0
+14. 2
+15. 88, 16
+16. 14
+17. 14
+18. d
+","[{""TagWeight"": ""3"", ""TagName"": ""Arithmetic operators""}, {""TagWeight"": ""3"", ""TagName"": ""increment/decrement operators""}, {""TagWeight"": ""3"", ""TagName"": ""increment/decrement operators""}, {""TagWeight"": ""3"", ""TagName"": ""Arithmetic operators""}, {""TagWeight"": ""3"", ""TagName"": ""Arithmetic operators, assignment operators""}]",15,Programming Language II_649
+2742,disable2017-06-01 19:54:22.550000Midterm_2,Jennifer Lin___Status:True,7,"19.Which of the following converts a decimal number to an integer number,a. int decimal = 4.35 ;
+float integer = (int) decimal ;
+b. double decimal = 4.35 ;
+integer int = (integer) decimal ;
+c. double decimal = 4.35 ;
+short integer = (short) decimal ;
+d. double decimal = 4.35 ;
+int integer = decimal ;
+20.What is the final value of sum displayed to the console:
+for(int i = 0; i < 5; i++)
+{
+int sum = 0;
+sum = sum + i;
+System.out.println(sum);
+}
+a. 5
+b. 10
+c. 15
+d. Compiler error
+e. None of the above
+21.What is the output of the following code:
+int x = 1;
+int y = 2;
+if(x != y)
+System.out.println(“x != y”);
+if(x = y)
+System.out.println(“x = y”);
+a. x = y
+b. x != y
+c. x != y
+x = y
+d. Compiler error
+",1,TRUE,"19. c
+20. e
+21. d","[{""TagWeight"": ""3"", ""TagName"": ""Number types limitation""}, {""TagWeight"": ""3"", ""TagName"": ""Understand For loop""}, {""TagWeight"": ""3"", ""TagName"": ""assignment operators""}]",9,Programming Language II_649
+2743,disable2017-06-01 19:54:22.550000Midterm_2,Jennifer Lin___Status:True,8,"22.What is displayed to the console by the following code:
+Double d = 4.5;
+Integer i = 2;
+double sum  = d + i;
+System.out.println(sum);
+a. 6
+b. 6.5
+c. Compiler error
+d. Runtime error
+23.What is the final value of result ?
+public class Tester {
+public static void main(String[] args) {
+int i = 2 * 2;
+int result = 0;
+if ( i > 5 ) {
+if ( i % 2 > 0 )
+result++;
+else
+result--;
+} else if ( i > 2 ) {
+result = i % 2;
+} else {
+result = 100;
+}
+}
+}
+",1,TRUE,"22. b
+23. 0","[{""TagWeight"": ""3"", ""TagName"": ""Number types limitation""}, {""TagWeight"": ""3"", ""TagName"": ""nested if, if-else""}]",6,Programming Language II_649
+2744,Midterm_2,Jennifer Lin___Status:True,1,"1.Write the Java code that calculates the value of S (a decimal number) in the following equation. Use math methods in the Java library.  Variable names must be descriptive. S = (   ( ∑ Ai2  -  ( (∑ Ai)2  / x )  )  /  ( x – 1)   )1/2 /n2.Please convert the following JAVA expression to Math expression. y  =  ( - b  + Math.sqrt( b * b – 4  * a * c) ) / ( 2 * a )/n 3.In assignment #2, the public interface of the Easter class contains a class method called calculateEaster(aYear):String.  Write the code in the EasterTester class that calls this method for the year 2000 and displays the result to the console",1,TRUE,"1. Math.sqrt( (sumOfASquared – (Math.pow(sumOfA, 2) / x) ) / (x – 1) )
+2. (-b + (b^2 - 4*a*c)^(1/2)) / 2*a
+3. System.out.println(Easter.calculateEaster(2000));","[{""TagWeight"": ""6"", ""TagName"": ""Mathematical and java expressions""}, {""TagWeight"": ""6"", ""TagName"": ""Arithmetic operators""}, {""TagWeight"": ""6"", ""TagName"": ""Calling static method""}]",18,Programming Language II_649
+2745,Midterm_2,Jennifer Lin___Status:True,2,"4.Given these variables, int day = 22 ; String month = “May” ; int year = 2015 ; Use string concatenation to write a single Java statement that displays the following to the console:   Hugh was born on May 22, 2015 /n5.Write the method (hint : isValidGrade)  in assignment #3 that determines whether a grade is within a valid grade range.  Your code may assume that appropriate constants for the max and min grades have been declared in the class: 6.Add Javadoc annotations to the method written in #2.  Simply rewrite it as an empty method and add the annotations here.",1,TRUE,"4. System.out.println(“Your birthday is ”+month+” “+day+”, ”+year);/n 5. public boolean isValidGrade(double aGrade){ return (aGrade >= MIN_GRADE && aGrade <= MAX_GRADE);}/n 6. /** Determines whether a grade is within acceptable range
+@param aGrade grade entered by user
+@return grade is valid when MIN_GRADE <= aGrade <= MAX_GRADE
+*/","[{""TagWeight"": ""6"", ""TagName"": ""String concatenation""}, {""TagWeight"": ""6"", ""TagName"": ""if-else, Boolean type, values, predicate methods""}, {""TagWeight"": ""6"", ""TagName"": ""javadoc""}]",18,Programming Language II_649
+2746,Midterm_2,Jennifer Lin___Status:True,3,"7.Using the following grading scale and the method written in #2 to ensure only valid grades are counted, write the decision logic that correctly counts the number of valid letter grades in each grade category.  You do NOT need to write an entire method, only the logic: A_MIN <=  A  <= MAX_GRADE B_MIN <=  B  < A_MIN C_MIN <=  C  < B_MIN MIN_GRADE <=  F  < C_MIN /n 8.Given the following code, write a while loop that prompts a user to input a number from 0 to 100 and displays the number to the console.  The loop continues until the user enters a 'q' or 'Q'.  Must use the method of the String class that determines String equality regardless of case! String msg = “Please enter a number from 0 to 100 or Q to quit”;
+JoptionPane.showInputDialog(msg): String
+Double.parseDouble(input): double
+",1,TRUE,"7. if(isValidGrade(aGrade)){
+if(aGrade >= A_MIN)
+numA++;
+else if(aGrade >= B_MIN)
+numB++;
+else if(aGrade >= C_MIN)
+numC++;
+else
+numF++;
+}
+String input = “”;
+while(!input.equalsIgnoreCase(“Q”))
+{
+input  = JoptionPane.showInputDialog(msg);
+if(!input.equalsIgnoreCase(“Q”))
+{
+double aNumber = Double.parseDouble(input);
+System.out.println(aNumber);
+}
+}
+","[{""TagWeight"": ""6"", ""TagName"": ""nested if, comparing numbers, strings""}, {""TagWeight"": ""6"", ""TagName"": ""Boolean type, values, predicate methods, Understand if""}]",12,Programming Language II_649
+2747,Midterm_2,Jennifer Lin___Status:True,4,"9.Write the following for loop as a while loop:
+for(int i = 0; i <= 10; i++)
+{
+System.out.println(i);
+}
+10.Write a for loop that calculates aNumber where aNumber is a positive integer.  You may assume  aNumber has been initialized. Display the final result to the console:",1,TRUE,"9. int i = 0;
+while(i <= 10)
+{
+System.out.println(i);
+i++;
+}
+10. int factorial = 1;
+for(int i = 1; i <= aNumber; i++)
+{
+factorial = factorial * i;
+}
+System.out.println(factorial);
+","[{""TagWeight"": ""6"", ""TagName"": ""Convert 1 kind of loop to another kind of loop""}, {""TagWeight"": ""6"", ""TagName"": ""Understand for while loop""}]",12,Programming Language II_649
+2748,Midterm_2,Jennifer Lin___Status:True,5,"11.Rewrite the following do loop into a while loop.int n = 1;
+double x = 0;
+double s;
+do
+{
+s = 1.0 / (n * n);
+x = x + s;
+n++;
+}while (s > 0.01);
+12.Implement max(double x, double y, double z):double using math functionality in the Java library.  The method returns the largest of the 3 parameters passed to it (method body can be written in 1 line of code!): ",1,TRUE,"11. int n = 1;
+double x = 0;
+double s = 1.0 / (n * n);
+x = x + s;
+n++;
+while (s > 0.01){
+s = 1.0 / (n * n);
+x = x + s;
+n++;
+}
+12. public double max(double x, double y, double z)
+{
+return Math.max(Math.max(x,y), z);
+}
+","[{""TagWeight"": ""6"", ""TagName"": ""Convert 1 kind of loop to another kind of loop""}, {""TagWeight"": ""6"", ""TagName"": ""Mathematical and java expressions""}]",12,Programming Language II_649
+2749,Midterm_2,Jennifer Lin___Status:True,6,"13.Evaluate the following expressions (be sure to indicate the correct type for your answer, eg. (type ) answer ) 14.14.What is the output of the following code?
+int x = 1 ;
+x++ ;
+x = x + 1 ;
+x-- ;
+System.out.println(x) ;
+15.What is the output of the following println statements?
+int num1 = 8 ;
+String num2 = “8” ;System.out.println(num1+num2) ;
+System.out.println(num1+num1) ;
+16. 16.What is the final value of the variable result? public class Tester {
+public static void main(String[] args) {
+int result = (int)Math.PI + 11;
+}
+}
+17.In JAVA, a constant is declared with the keyword:
+a. const
+b. static
+c. final
+d. constant
+18.What is displayed to the console by the following code? double aDouble = 10.0 / 8;
+int anInt = Math.round(aDouble);
+System.out.println(anInt);
+a. 2
+b. 1.0
+c. 1
+d. Compiler error
+",1,TRUE,"13. 12 % 4 = 0
+12 / 4 = 3
+12 / 4.0 = 3.0
+14. 2
+15. 88, 16
+16. 14
+17. 14
+18. d
+","[{""TagWeight"": ""3"", ""TagName"": ""Arithmetic operators""}, {""TagWeight"": ""3"", ""TagName"": ""increment/decrement operators""}, {""TagWeight"": ""3"", ""TagName"": ""increment/decrement operators""}, {""TagWeight"": ""3"", ""TagName"": ""Arithmetic operators""}, {""TagWeight"": ""6"", ""TagName"": ""Constant""}, {""TagWeight"": ""0"", ""TagName"": ""Constant""}]",18.5,Programming Language II_649
+2750,Midterm_2,Jennifer Lin___Status:True,7,"19.Which of the following converts a decimal number to an integer number,a. int decimal = 4.35 ;
+float integer = (int) decimal ;
+b. double decimal = 4.35 ;
+integer int = (integer) decimal ;
+c. double decimal = 4.35 ;
+short integer = (short) decimal ;
+d. double decimal = 4.35 ;
+int integer = decimal ;
+20.What is the final value of sum displayed to the console:
+for(int i = 0; i < 5; i++)
+{
+int sum = 0;
+sum = sum + i;
+System.out.println(sum);
+}
+a. 5
+b. 10
+c. 15
+d. Compiler error
+e. None of the above
+21.What is the output of the following code:
+int x = 1;
+int y = 2;
+if(x != y)
+System.out.println(“x != y”);
+if(x = y)
+System.out.println(“x = y”);
+a. x = y
+b. x != y
+c. x != y
+x = y
+d. Compiler error
+",1,TRUE,"19. c
+20. e
+21. d","[{""TagWeight"": ""3"", ""TagName"": ""Number types limitation""}, {""TagWeight"": ""3"", ""TagName"": ""Understand For loop""}, {""TagWeight"": ""3"", ""TagName"": ""assignment operators""}]",9,Programming Language II_649
+2751,Midterm_2,Jennifer Lin___Status:True,8,"22.What is displayed to the console by the following code:
+Double d = 4.5;
+Integer i = 2;
+double sum  = d + i;
+System.out.println(sum);
+a. 6
+b. 6.5
+c. Compiler error
+d. Runtime error
+23.What is the final value of result ?
+public class Tester {
+public static void main(String[] args) {
+int i = 2 * 2;
+int result = 0;
+if ( i > 5 ) {
+if ( i % 2 > 0 )
+result++;
+else
+result--;
+} else if ( i > 2 ) {
+result = i % 2;
+} else {
+result = 100;
+}
+}
+}
+",1,TRUE,"22. b
+23. 0","[{""TagWeight"": ""3"", ""TagName"": ""Number types limitation""}, {""TagWeight"": ""3"", ""TagName"": ""nested if, if-else""}]",6,Programming Language II_649
+2752,disable2017-06-26 01:18:34.163000finals,Jennifer Lin___Status:True,1,"1. Which of the following is true regarding subclasses?
+2. If a superclass and a subclass both have an instance variable with the same name, which statement is true?
+3. To override a superclass method in a subclass, the subclass method ____.
+4. What must a subclass do to modify a private superclass instance variable?",1,TRUE,"1. D
+2. C
+3. B
+4. C
+","[{""TagWeight"": ""3"", ""TagName"": ""Super classes and subclasses""}, {""TagWeight"": ""3"", ""TagName"": ""Super classes and subclasses""}, {""TagWeight"": ""3"", ""TagName"": ""Override a superclass method""}, {""TagWeight"": ""3"", ""TagName"": ""Instance variable of superclass""}]",12,Programming Language II_649
+2753,disable2017-06-26 01:18:34.163000finals,Jennifer Lin___Status:True,2,"5. Consider the following code snippet: public void deposit(double amount)
+{
+transactionCount ++;
+super.deposit(amount);
+}
+Which of the following statements is true?
+6. Consider the following code snippet that appears in a subclass:
+public void deposit(double amount)
+{n    transactionCount ++;
+deposit(amount);
+}
+Which of the following statements is true?
+7. The ____reserved word is used to deactivate polymorphism and invoke a method of the superclass.
+8. Which of the following is true regarding subclasses?",1,TRUE,"5. D
+6. A
+7. D
+8.D","[{""TagWeight"": ""3"", ""TagName"": ""Calling method of super class""}, {""TagWeight"": ""3"", ""TagName"": ""Recursive calling method""}, {""TagWeight"": ""3"", ""TagName"": ""Invoke a method of the superclass""}, {""TagWeight"": ""3"", ""TagName"": ""Calling the superclass constructor""}]",12,Programming Language II_649
+2754,disable2017-06-26 01:18:34.163000finals,Jennifer Lin___Status:True,3,"9. Consider the following code snippet:
+Rectangle r = new Rectangle(5, 10, 20, 30);
+String s = r.toString();
+if (s instanceof Rectangle)
+System.out.println(s);
+Which of the following statements is true?10. Consider the following code snippet that attempts to create a copy of a BankAccount object:
+BankAccount clonedAccount = account.clone();
+Assume that the clone() method has been implemented for the BankAccount class. What is wrong with this code?
+11.General Java variable naming conventions would suggest that a variable named NICKEL_VALUE would most probably be declared using which of the following combinations of modifiers?
+12.Which type of method modifies the object on which it is invoked?
+",1,TRUE,"9. A
+10. A
+11. B
+12. D
+","[{""TagWeight"": ""3"", ""TagName"": ""Instance of java class.""}, {""TagWeight"": ""3"", ""TagName"": ""Inheritance of java object.""}, {""TagWeight"": ""3"", ""TagName"": ""Constant of java.""}, {""TagWeight"": ""3"", ""TagName"": ""Method of setting attributes of java.""}]",12,Programming Language II_649
+2755,disable2017-06-26 01:18:34.163000finals,Jennifer Lin___Status:True,4,"13. The use of the static keyword in a method declaration implies which of the following?
+14.Consider the following code snippet:public class RewardPointsAccount
+{
+private int currentRewardPointBalance;
+private static int level1Cutoff = 15000;
+...
+}
+If a program instantiates four objects using this class, which of the following statements will be true?
+15.Consider the following code snippet:
+public class Vehicle
+{
+String vehicleType;
+. . .
+}
+Which of the following statements about the variable vehicleType is true?
+",1,TRUE,"13. D
+14. C
+15. A","[{""TagWeight"": ""3"", ""TagName"": ""Static in java""}, {""TagWeight"": ""3"", ""TagName"": ""Inheritance of java objects""}, {""TagWeight"": ""3"", ""TagName"": ""Visability of java attributes""}]",9,Programming Language II_649
+2756,disable2017-06-26 01:18:34.163000finals,Jennifer Lin___Status:True,5,"16.
+1) Please implement a class Geometry with two static methods
+circleCircumference : calculates the circumference a circle with a given radius r
+circleArea: calculates the area of a circle with a given radius r
+2) Please provide appropriate JAVADOC comments for each method
+",2,TRUE,http://imgur.com/vLHvimP,"[{""TagWeight"": ""2"", ""TagName"": ""JAVADOC""}, {""TagWeight"": ""2"", ""TagName"": ""static method""}, {""TagWeight"": ""2"", ""TagName"": ""correct return type""}, {""TagWeight"": ""2"", ""TagName"": ""correct circleCircumference""}, {""TagWeight"": ""2"", ""TagName"": ""correct circleArea""}]",10,Programming Language II_649
+2757,disable2017-06-26 01:18:34.163000finals,Jennifer Lin___Status:True,6,"17.1) In the main method, please instantiates an array of String objects called customerName. The array should have room for five String objects. Use an initializer list to put the following names into the array: Cathy, Ben, Jorge, Wanda, Freddie
+2) Use new to add a second double array called customerBalance in the main method. Allow room for five customer balances, each stored as a double.
+3) In the loop that prints each customer name, add some code to prompt the user to enter a balance for that customer.  Read the keyboard input with a Scanner object.
+4) After all the balances have been entered, print out each customer name and his/her balance.
+",2,TRUE,http://imgur.com/Qb2bwQC,"[{""TagWeight"": ""2"", ""TagName"": ""Use initializer list""}, {""TagWeight"": ""2"", ""TagName"": ""Correct type of array list""}, {""TagWeight"": ""2"", ""TagName"": ""Correct use of for loop""}, {""TagWeight"": ""2"", ""TagName"": ""Correct scanner object""}, {""TagWeight"": ""2"", ""TagName"": ""display of customer balance""}]",10,Programming Language II_649
+2758,disable2017-06-26 01:18:34.163000finals,Jennifer Lin___Status:True,7,"18.Please provide an implementation for the method averageWithoutLowest2 that finds an average score from a sequence of scores, discarding the two lowest scores.
+1) If there are fewer than two scores, return 0.
+2) Initialize with the first two scores
+3) Find the two lowest scores
+4) Add up all the values and delete the two lowest scores
+5) Return the average without the two lowest scores
+Part of the class has been provided for you:
+public class ScoreSet
+{
+private ArrayList<Integer> scores;
+public ScoreSet(){scores = new ArrayList<Integer>();}
+public void add(int score){scores.add(score); }
+public double averageWithoutLowest2() { . . . }
+}
+",2,TRUE,http://imgur.com/eh0iRRc,"[{""TagWeight"": ""2"", ""TagName"": ""calculate lowest""}, {""TagWeight"": ""2"", ""TagName"": ""conditional statements""}, {""TagWeight"": ""2"", ""TagName"": ""Correct use of for loop""}, {""TagWeight"": ""2"", ""TagName"": ""Correct if-else""}, {""TagWeight"": ""2"", ""TagName"": ""Correct return type""}]",10,Programming Language II_649
+2759,disable2017-06-26 01:18:34.163000finals,Jennifer Lin___Status:True,8,"19. Consider using the following Card class to implement the subclasses IDCard.
+Implement a String instance variable idNumber in the class IDCard.
+Implement constructors for IDCard that initializes the idNumber and calls the superclass
+constructor to set the name.
+Implement a new method getIDnumber for IDCard that returns the idNumber.
+1)
+Override the method format which produces 'ID='idNumber and calls the superclass format method to get the formatted name of the cardholder.",2,TRUE,http://imgur.com/4kI8uEj,"[{""TagWeight"": ""3"", ""TagName"": ""super constructor""}, {""TagWeight"": ""3"", ""TagName"": ""override methods""}, {""TagWeight"": ""2"", ""TagName"": ""extend class""}, {""TagWeight"": ""2"", ""TagName"": ""calling super methods""}]",10,Programming Language II_649
+2760,disable2017-06-26 01:18:34.163000finals,Jennifer Lin___Status:True,9,"20. Devise another class, Billfold
+1) Billfold have two instance variables with Card type, card1 and card2.
+2) Billfold has two methods:
+The addCard method received a Card type input parameter and checks whether card1 is null. If so, it sets card1 to the new card. If not, it checks card2. If both cards are set already, the method has no effect.
+The method formatCards returns card’s format detail.
+",2,TRUE,http://imgur.com/UUYhlBO,"[{""TagWeight"": ""2"", ""TagName"": ""correct attribute type of card""}, {""TagWeight"": ""4"", ""TagName"": ""addCard method""}, {""TagWeight"": ""4"", ""TagName"": ""formatCards method""}]",10,Programming Language II_649
+2761,disable2017-06-26 01:18:34.163000finals,Jennifer Lin___Status:True,10,21. Write a tester program called Tester that adds two objects of Card and IDCard to a Billfold object. Print out the results of the formatCards methods.,2,TRUE,http://imgur.com/12WnQa9,"[{""TagWeight"": ""4"", ""TagName"": ""calling constructors""}, {""TagWeight"": ""4"", ""TagName"": ""calling  instance methods""}, {""TagWeight"": ""2"", ""TagName"": ""System output""}]",10,Programming Language II_649
+2762,disable2017-06-26 01:18:34.163000finals,Jennifer Lin___Status:True,11,21. Write a tester program called Tester that adds two objects of Card and IDCard to a Billfold object. Print out the results of the formatCards methods.,2,TRUE,http://imgur.com/12WnQa9,"[{""TagWeight"": ""4"", ""TagName"": ""calling constructors""}, {""TagWeight"": ""4"", ""TagName"": ""calling  instance methods""}, {""TagWeight"": ""2"", ""TagName"": ""System output""}]",10,Programming Language II_649
+2763,disable2017-06-26 22:58:45.749000finals,Jennifer Lin___Status:True,1,"1. Which of the following is true regarding subclasses?
+2. If a superclass and a subclass both have an instance variable with the same name, which statement is true?
+3. To override a superclass method in a subclass, the subclass method ____.
+4. What must a subclass do to modify a private superclass instance variable?",1,TRUE,"1. D
+2. C
+3. B
+4. C
+","[{""TagWeight"": ""3"", ""TagName"": ""Super classes and subclasses""}, {""TagWeight"": ""3"", ""TagName"": ""Super classes and subclasses""}, {""TagWeight"": ""3"", ""TagName"": ""Override a superclass method""}, {""TagWeight"": ""3"", ""TagName"": ""Instance variable of superclass""}]",12,Programming Language II_649
+2764,disable2017-06-26 22:58:45.749000finals,Jennifer Lin___Status:True,2,"5. Consider the following code snippet: public void deposit(double amount)
+{
+transactionCount ++;
+super.deposit(amount);
+}
+Which of the following statements is true?
+6. Consider the following code snippet that appears in a subclass:
+public void deposit(double amount)
+{n    transactionCount ++;
+deposit(amount);
+}
+Which of the following statements is true?
+7. The ____reserved word is used to deactivate polymorphism and invoke a method of the superclass.
+8. Which of the following is true regarding subclasses?",1,TRUE,"5. D
+6. A
+7. D
+8.D","[{""TagWeight"": ""3"", ""TagName"": ""Calling method of super class""}, {""TagWeight"": ""3"", ""TagName"": ""Recursive calling method""}, {""TagWeight"": ""3"", ""TagName"": ""Invoke a method of the superclass""}, {""TagWeight"": ""3"", ""TagName"": ""Calling the superclass constructor""}]",12,Programming Language II_649
+2765,disable2017-06-26 22:58:45.749000finals,Jennifer Lin___Status:True,3,"9. Consider the following code snippet:
+Rectangle r = new Rectangle(5, 10, 20, 30);
+String s = r.toString();
+if (s instanceof Rectangle)
+System.out.println(s);
+Which of the following statements is true?10. Consider the following code snippet that attempts to create a copy of a BankAccount object:
+BankAccount clonedAccount = account.clone();
+Assume that the clone() method has been implemented for the BankAccount class. What is wrong with this code?
+11.General Java variable naming conventions would suggest that a variable named NICKEL_VALUE would most probably be declared using which of the following combinations of modifiers?
+12.Which type of method modifies the object on which it is invoked?
+",1,TRUE,"9. A
+10. A
+11. B
+12. D
+","[{""TagWeight"": ""3"", ""TagName"": ""Instance of java class.""}, {""TagWeight"": ""3"", ""TagName"": ""Inheritance of java object.""}, {""TagWeight"": ""3"", ""TagName"": ""Constant of java.""}, {""TagWeight"": ""3"", ""TagName"": ""Method of setting attributes of java.""}]",12,Programming Language II_649
+2766,disable2017-06-26 22:58:45.749000finals,Jennifer Lin___Status:True,4,"13. The use of the static keyword in a method declaration implies which of the following?
+14.Consider the following code snippet:public class RewardPointsAccount
+{
+private int currentRewardPointBalance;
+private static int level1Cutoff = 15000;
+...
+}
+If a program instantiates four objects using this class, which of the following statements will be true?
+15.Consider the following code snippet:
+public class Vehicle
+{
+String vehicleType;
+. . .
+}
+Which of the following statements about the variable vehicleType is true?
+",1,TRUE,"13. D
+14. C
+15. A","[{""TagWeight"": ""3"", ""TagName"": ""Static in java""}, {""TagWeight"": ""3"", ""TagName"": ""Inheritance of java objects""}, {""TagWeight"": ""3"", ""TagName"": ""Visability of java attributes""}]",9,Programming Language II_649
+2767,disable2017-06-26 22:58:45.749000finals,Jennifer Lin___Status:True,5,"16.
+1) Please implement a class Geometry with two static methods
+circleCircumference : calculates the circumference a circle with a given radius r
+circleArea: calculates the area of a circle with a given radius r
+2) Please provide appropriate JAVADOC comments for each method
+",2,TRUE,http://imgur.com/vLHvimP,"[{""TagWeight"": ""2"", ""TagName"": ""JAVADOC""}, {""TagWeight"": ""2"", ""TagName"": ""static method""}, {""TagWeight"": ""2"", ""TagName"": ""correct return type""}, {""TagWeight"": ""2"", ""TagName"": ""correct circleCircumference""}, {""TagWeight"": ""2"", ""TagName"": ""correct circleArea""}]",10,Programming Language II_649
+2768,disable2017-06-26 22:58:45.749000finals,Jennifer Lin___Status:True,6,"17.1) In the main method, please instantiates an array of String objects called customerName. The array should have room for five String objects. Use an initializer list to put the following names into the array: Cathy, Ben, Jorge, Wanda, Freddie
+2) Use new to add a second double array called customerBalance in the main method. Allow room for five customer balances, each stored as a double.
+3) In the loop that prints each customer name, add some code to prompt the user to enter a balance for that customer.  Read the keyboard input with a Scanner object.
+4) After all the balances have been entered, print out each customer name and his/her balance.
+",2,TRUE,http://imgur.com/Qb2bwQC,"[{""TagWeight"": ""2"", ""TagName"": ""Use initializer list""}, {""TagWeight"": ""2"", ""TagName"": ""Correct type of array list""}, {""TagWeight"": ""2"", ""TagName"": ""Correct use of for loop""}, {""TagWeight"": ""2"", ""TagName"": ""Correct scanner object""}, {""TagWeight"": ""2"", ""TagName"": ""display of customer balance""}]",10,Programming Language II_649
+2769,disable2017-06-26 22:58:45.749000finals,Jennifer Lin___Status:True,7,"18.Please provide an implementation for the method averageWithoutLowest2 that finds an average score from a sequence of scores, discarding the two lowest scores.
+1) If there are fewer than two scores, return 0.
+2) Initialize with the first two scores
+3) Find the two lowest scores
+4) Add up all the values and delete the two lowest scores
+5) Return the average without the two lowest scores
+Part of the class has been provided for you:
+public class ScoreSet
+{
+private ArrayList<Integer> scores;
+public ScoreSet(){scores = new ArrayList<Integer>();}
+public void add(int score){scores.add(score); }
+public double averageWithoutLowest2() { . . . }
+}
+",2,TRUE,http://imgur.com/eh0iRRc,"[{""TagWeight"": ""2"", ""TagName"": ""calculate lowest""}, {""TagWeight"": ""2"", ""TagName"": ""conditional statements""}, {""TagWeight"": ""2"", ""TagName"": ""Correct use of for loop""}, {""TagWeight"": ""2"", ""TagName"": ""Correct if-else""}, {""TagWeight"": ""2"", ""TagName"": ""Correct return type""}]",10,Programming Language II_649
+2770,disable2017-06-26 22:58:45.749000finals,Jennifer Lin___Status:True,8,"19. Consider using the following Card class to implement the subclasses IDCard.
+Implement a String instance variable idNumber in the class IDCard.
+Implement constructors for IDCard that initializes the idNumber and calls the superclass
+constructor to set the name.
+Implement a new method getIDnumber for IDCard that returns the idNumber.
+1)
+Override the method format which produces 'ID='idNumber and calls the superclass format method to get the formatted name of the cardholder.",2,TRUE,http://imgur.com/4kI8uEj,"[{""TagWeight"": ""3"", ""TagName"": ""super constructor""}, {""TagWeight"": ""3"", ""TagName"": ""override methods""}, {""TagWeight"": ""2"", ""TagName"": ""extend class""}, {""TagWeight"": ""2"", ""TagName"": ""calling super methods""}]",10,Programming Language II_649
+2771,disable2017-06-26 22:58:45.749000finals,Jennifer Lin___Status:True,9,"20. Devise another class, Billfold
+1) Billfold have two instance variables with Card type, card1 and card2.
+2) Billfold has two methods:
+The addCard method received a Card type input parameter and checks whether card1 is null. If so, it sets card1 to the new card. If not, it checks card2. If both cards are set already, the method has no effect.
+The method formatCards returns card’s format detail.
+",2,TRUE,http://imgur.com/UUYhlBO,"[{""TagWeight"": ""2"", ""TagName"": ""correct attribute type of card""}, {""TagWeight"": ""4"", ""TagName"": ""addCard method""}, {""TagWeight"": ""4"", ""TagName"": ""formatCards method""}]",10,Programming Language II_649
+2772,disable2017-06-26 22:58:45.749000finals,Jennifer Lin___Status:True,10,21. Write a tester program called Tester that adds two objects of Card and IDCard to a Billfold object. Print out the results of the formatCards methods.,2,TRUE,http://imgur.com/12WnQa9,"[{""TagWeight"": ""4"", ""TagName"": ""calling constructors""}, {""TagWeight"": ""4"", ""TagName"": ""calling  instance methods""}, {""TagWeight"": ""2"", ""TagName"": ""System output""}]",10,Programming Language II_649
+2773,finals,Jennifer Lin___Status:True,1,"1. Which of the following is true regarding subclasses?
+2. If a superclass and a subclass both have an instance variable with the same name, which statement is true?
+3. To override a superclass method in a subclass, the subclass method ____.
+4. What must a subclass do to modify a private superclass instance variable?",1,TRUE,"1. D
+2. C
+3. B
+4. C
+","[{""TagWeight"": ""3"", ""TagName"": ""Subclasses""}, {""TagWeight"": ""3"", ""TagName"": ""Super classes and subclasses""}, {""TagWeight"": ""3"", ""TagName"": ""Override a superclass method""}, {""TagWeight"": ""3"", ""TagName"": ""Instance variable of superclass""}]",12,Programming Language II_649
+2774,finals,Jennifer Lin___Status:True,2,"5. Consider the following code snippet: public void deposit(double amount)
+{
+transactionCount ++;
+super.deposit(amount);
+}
+Which of the following statements is true?
+6. Consider the following code snippet that appears in a subclass:
+public void deposit(double amount)
+{n    transactionCount ++;
+deposit(amount);
+}
+Which of the following statements is true?
+7. The ____reserved word is used to deactivate polymorphism and invoke a method of the superclass.
+8. Which of the following is true regarding subclasses?",1,TRUE,"5. D
+6. A
+7. D
+8.D","[{""TagWeight"": ""3"", ""TagName"": ""Calling method of super class""}, {""TagWeight"": ""3"", ""TagName"": ""Recursive calling method""}, {""TagWeight"": ""3"", ""TagName"": ""Invoke a method of the superclass""}, {""TagWeight"": ""3"", ""TagName"": ""Calling the superclass constructor""}]",12,Programming Language II_649
+2775,finals,Jennifer Lin___Status:True,3,"9. Consider the following code snippet:
+Rectangle r = new Rectangle(5, 10, 20, 30);
+String s = r.toString();
+if (s instanceof Rectangle)
+System.out.println(s);
+Which of the following statements is true?10. Consider the following code snippet that attempts to create a copy of a BankAccount object:
+BankAccount clonedAccount = account.clone();
+Assume that the clone() method has been implemented for the BankAccount class. What is wrong with this code?
+11.General Java variable naming conventions would suggest that a variable named NICKEL_VALUE would most probably be declared using which of the following combinations of modifiers?
+12.Which type of method modifies the object on which it is invoked?
+",1,TRUE,"9. A
+10. A
+11. B
+12. D
+","[{""TagWeight"": ""3"", ""TagName"": ""Instance of java class.""}, {""TagWeight"": ""3"", ""TagName"": ""Inheritance of java object.""}, {""TagWeight"": ""3"", ""TagName"": ""Constant of java.""}, {""TagWeight"": ""3"", ""TagName"": ""Method of setting attributes of java.""}]",12,Programming Language II_649
+2776,finals,Jennifer Lin___Status:True,4,"13. The use of the static keyword in a method declaration implies which of the following?
+14.Consider the following code snippet:public class RewardPointsAccount
+{
+private int currentRewardPointBalance;
+private static int level1Cutoff = 15000;
+...
+}
+If a program instantiates four objects using this class, which of the following statements will be true?
+15.Consider the following code snippet:
+public class Vehicle
+{
+String vehicleType;
+. . .
+}
+Which of the following statements about the variable vehicleType is true?
+",1,TRUE,"13. D
+14. C
+15. A","[{""TagWeight"": ""3"", ""TagName"": ""Static in java""}, {""TagWeight"": ""3"", ""TagName"": ""Inheritance of java objects""}, {""TagWeight"": ""3"", ""TagName"": ""Visability of java attributes""}]",9,Programming Language II_649
+2777,finals,Jennifer Lin___Status:True,5,"16.
+1) Please implement a class Geometry with two static methods
+circleCircumference : calculates the circumference a circle with a given radius r
+circleArea: calculates the area of a circle with a given radius r
+2) Please provide appropriate JAVADOC comments for each method
+",2,TRUE,http://imgur.com/vLHvimP,"[{""TagWeight"": ""2"", ""TagName"": ""JAVADOC""}, {""TagWeight"": ""2"", ""TagName"": ""static method""}, {""TagWeight"": ""2"", ""TagName"": ""correct return type""}, {""TagWeight"": ""2"", ""TagName"": ""correct circleCircumference""}, {""TagWeight"": ""2"", ""TagName"": ""correct circleArea""}]",10,Programming Language II_649
+2778,finals,Jennifer Lin___Status:True,6,"17.1) In the main method, please instantiates an array of String objects called customerName. The array should have room for five String objects. Use an initializer list to put the following names into the array: Cathy, Ben, Jorge, Wanda, Freddie
+2) Use new to add a second double array called customerBalance in the main method. Allow room for five customer balances, each stored as a double.
+3) In the loop that prints each customer name, add some code to prompt the user to enter a balance for that customer.  Read the keyboard input with a Scanner object.
+4) After all the balances have been entered, print out each customer name and his/her balance.
+",2,TRUE,http://imgur.com/Qb2bwQC,"[{""TagWeight"": ""2"", ""TagName"": ""Use initializer list""}, {""TagWeight"": ""2"", ""TagName"": ""Correct type of array list""}, {""TagWeight"": ""2"", ""TagName"": ""Correct use of for loop""}, {""TagWeight"": ""2"", ""TagName"": ""Correct scanner object""}, {""TagWeight"": ""2"", ""TagName"": ""display of customer balance""}]",10,Programming Language II_649
+2779,finals,Jennifer Lin___Status:True,7,"18.Please provide an implementation for the method averageWithoutLowest2 that finds an average score from a sequence of scores, discarding the two lowest scores.
+1) If there are fewer than two scores, return 0.
+2) Initialize with the first two scores
+3) Find the two lowest scores
+4) Add up all the values and delete the two lowest scores
+5) Return the average without the two lowest scores
+Part of the class has been provided for you:
+public class ScoreSet
+{
+private ArrayList<Integer> scores;
+public ScoreSet(){scores = new ArrayList<Integer>();}
+public void add(int score){scores.add(score); }
+public double averageWithoutLowest2() { . . . }
+}
+",2,TRUE,http://imgur.com/eh0iRRc,"[{""TagWeight"": ""2"", ""TagName"": ""calculate lowest""}, {""TagWeight"": ""2"", ""TagName"": ""conditional statements""}, {""TagWeight"": ""2"", ""TagName"": ""Correct use of for loop""}, {""TagWeight"": ""2"", ""TagName"": ""Correct if-else""}, {""TagWeight"": ""2"", ""TagName"": ""Correct return type""}]",10,Programming Language II_649
+2780,finals,Jennifer Lin___Status:True,8,"19. Consider using the following Card class to implement the subclasses IDCard.
+Implement a String instance variable idNumber in the class IDCard.
+Implement constructors for IDCard that initializes the idNumber and calls the superclass
+constructor to set the name.
+Implement a new method getIDnumber for IDCard that returns the idNumber.
+1)
+Override the method format which produces 'ID='idNumber and calls the superclass format method to get the formatted name of the cardholder.",2,TRUE,http://imgur.com/4kI8uEj,"[{""TagWeight"": ""3"", ""TagName"": ""super constructor""}, {""TagWeight"": ""3"", ""TagName"": ""override methods""}, {""TagWeight"": ""2"", ""TagName"": ""extend class""}, {""TagWeight"": ""2"", ""TagName"": ""calling super methods""}]",10,Programming Language II_649
+2781,finals,Jennifer Lin___Status:True,9,"20. Devise another class, Billfold
+1) Billfold have two instance variables with Card type, card1 and card2.
+2) Billfold has two methods:
+The addCard method received a Card type input parameter and checks whether card1 is null. If so, it sets card1 to the new card. If not, it checks card2. If both cards are set already, the method has no effect.
+The method formatCards returns card’s format detail.
+",2,TRUE,http://imgur.com/UUYhlBO,"[{""TagWeight"": ""2"", ""TagName"": ""correct attribute type of card""}, {""TagWeight"": ""4"", ""TagName"": ""addCard method""}, {""TagWeight"": ""4"", ""TagName"": ""formatCards method""}]",10,Programming Language II_649
+2782,finals,Jennifer Lin___Status:True,10,21. Write a tester program called Tester that adds two objects of Card and IDCard to a Billfold object. Print out the results of the formatCards methods.,2,TRUE,http://imgur.com/12WnQa9,"[{""TagWeight"": ""4"", ""TagName"": ""calling constructors""}, {""TagWeight"": ""4"", ""TagName"": ""calling  instance methods""}, {""TagWeight"": ""2"", ""TagName"": ""System output""}]",10,Programming Language II_649

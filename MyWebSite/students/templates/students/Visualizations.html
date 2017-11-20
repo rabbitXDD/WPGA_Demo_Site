@@ -5,12 +5,12 @@
 {% block content %}
     <table class="table table-striped">
         <tr>
-            <td>Question1</td>
-            <td>Question2</td>
-            <td>Question3</td>
-            <td>Question4</td>
-            <td>Question5</td>
-            <td>Question6-12</td>
+            <td>Question1(Box class)</td>
+            <td>Question2(Box Tester class)</td>
+            <td>Question3(BMICalculator class)</td>
+            <td>Question4(BMICalculatorTester class)</td>
+            <td>Question5(Java Doc)</td>
+            <td>Question6-12(Multiple Choice)</td>
         </tr>
 
     
@@ -33,7 +33,7 @@
         {{ figure_6|safe}}
     </div>
 
-    <div class="forms" style="position:fixed;left:50%; bottom:30%">
+    <div class="forms" style="position:fixed;left:50%; bottom:35%">
         <form action="/students/" method="post">
             {% csrf_token %}
             <h3>{{question}}</h3>

@@ -25,12 +25,234 @@ userHandler = Handler.UserHandler()
 import pandas as pd
 import matplotlib.pyplot as plt
 import plotly.plotly as py 
+import plotly.graph_objs as go
 plt.rcdefaults()
 import numpy as np
 import mpld3
 from matplotlib.pyplot import figure, title, bar
 import numpy.random as rnd
 
+
+json = {
+    "Questions": [
+        {
+            "Name": "Question1", 
+            "Rubrics": [
+                {
+                    "Name": "Instance_Variables", 
+                    "Weight": "3.00", 
+                    "ChangeFactor": "0.50"
+                }, 
+                {
+                    "Name": "Constructor", 
+                    "Weight": "3.00", 
+                    "ChangeFactor": "0.50"
+                }, 
+                {
+                    "Name": "Getter_Methods", 
+                    "Weight": "3.00", 
+                    "ChangeFactor": "0.50"
+                }, 
+                {
+                    "Name": "Arithmetic_Methods Area", 
+                    "Weight": "3.00", 
+                    "ChangeFactor": "0.50"
+                }, 
+                {
+                    "Name": "Arithmetic_Methods Perimeter", 
+                    "Weight": "3.00", 
+                    "ChangeFactor": "0.50"
+                }
+            ], 
+            "DisplayCorrectAnswer": True, 
+            "ChangeFactor": "0.50", 
+            "GradingMethod": 0, 
+            "Position": 10, 
+            "MaxPoints": "15.00", 
+            "CorrectAnswer": "https://imgur.com/zTlztUn"
+        }, 
+        {
+            "Name": "Question2", 
+            "Rubrics": [
+                {
+                    "Name": "Main_Methods", 
+                    "Weight": "3.00", 
+                    "ChangeFactor": "0.50"
+                }, 
+                {
+                    "Name": "Object_Instance", 
+                    "Weight": "3.00", 
+                    "ChangeFactor": "0.50"
+                }, 
+                {
+                    "Name": "Instance_Methods", 
+                    "Weight": "3.00", 
+                    "ChangeFactor": "0.50"
+                }, 
+                {
+                    "Name": "Instance_Variables", 
+                    "Weight": "3.00", 
+                    "ChangeFactor": "0.50"
+                }, 
+                {
+                    "Name": "Print_Methods", 
+                    "Weight": "3.00", 
+                    "ChangeFactor": "0.50"
+                }
+            ], 
+            "DisplayCorrectAnswer": True, 
+            "ChangeFactor": "0.50", 
+            "GradingMethod": 0, 
+            "Position": 20, 
+            "MaxPoints": "15.00", 
+            "CorrectAnswer": "https://imgur.com/mzHhWUO"
+        }, 
+        {
+            "Name": "Question3", 
+            "Rubrics": [
+                {
+                    "Name": "Instance_Variables", 
+                    "Weight": "3.00", 
+                    "ChangeFactor": "0.50"
+                }, 
+                {
+                    "Name": "Constructor", 
+                    "Weight": "3.00", 
+                    "ChangeFactor": "0.50"
+                }, 
+                {
+                    "Name": "Getter_Methods", 
+                    "Weight": "3.00", 
+                    "ChangeFactor": "0.50"
+                }, 
+                {
+                    "Name": "Arithmetic_Methods BMI", 
+                    "Weight": "3.00", 
+                    "ChangeFactor": "0.50"
+                }, 
+                {
+                    "Name": "String_Methods BMI Message", 
+                    "Weight": "3.00", 
+                    "ChangeFactor": "0.50"
+                }
+            ], 
+            "DisplayCorrectAnswer": True, 
+            "ChangeFactor": "0.50", 
+            "GradingMethod": 0, 
+            "Position": 30, 
+            "MaxPoints": "15.00", 
+            "CorrectAnswer": "https://imgur.com/yjYxa7d"
+        }, 
+        {
+            "Name": "Question4", 
+            "Rubrics": [
+                {
+                    "Name": "Main_Methods", 
+                    "Weight": "3.00", 
+                    "ChangeFactor": "0.50"
+                }, 
+                {
+                    "Name": "Object_Instance", 
+                    "Weight": "3.00", 
+                    "ChangeFactor": "0.50"
+                }, 
+                {
+                    "Name": "Instance_Methods", 
+                    "Weight": "3.00", 
+                    "ChangeFactor": "0.50"
+                }, 
+                {
+                    "Name": "Instance_Variables", 
+                    "Weight": "3.00", 
+                    "ChangeFactor": "0.50"
+                }, 
+                {
+                    "Name": "Print_Methods", 
+                    "Weight": "3.00", 
+                    "ChangeFactor": "0.50"
+                }
+            ], 
+            "DisplayCorrectAnswer": True, 
+            "ChangeFactor": "0.50", 
+            "GradingMethod": 0, 
+            "Position": 40, 
+            "MaxPoints": "15.00", 
+            "CorrectAnswer": "https://imgur.com/CTNWWn2"
+        }, 
+        {
+            "Name": "Question5", 
+            "Rubrics": [
+                {
+                    "Name": "Javadoc Class", 
+                    "Weight": "4.00", 
+                    "ChangeFactor": "1.00"
+                }, 
+                {
+                    "Name": "Javadoc Methods", 
+                    "Weight": "7.00", 
+                    "ChangeFactor": "1.00"
+                }, 
+                {
+                    "Name": "Javadoc Attributes", 
+                    "Weight": "4.00", 
+                    "ChangeFactor": "1.00"
+                }
+            ], 
+            "DisplayCorrectAnswer": True, 
+            "ChangeFactor": "0.50", 
+            "GradingMethod": 0, 
+            "Position": 50, 
+            "MaxPoints": "15.00", 
+            "CorrectAnswer": "https://imgur.com/ROxlT4i\r\nhttps://imgur.com/teC4QMB"
+        }, 
+        {
+            "Name": "Question6-12", 
+            "Rubrics": [
+                {
+                    "Name": "Arithmetic_Operators", 
+                    "Weight": "9.00", 
+                    "ChangeFactor": "3.00"
+                }, 
+                {
+                    "Name": "Arithmetic_Operators", 
+                    "Weight": "3.00", 
+                    "ChangeFactor": "3.00"
+                }, 
+                {
+                    "Name": "Primitive_Type Value_Assign", 
+                    "Weight": "3.00", 
+                    "ChangeFactor": "3.00"
+                }, 
+                {
+                    "Name": "Executing Java", 
+                    "Weight": "3.00", 
+                    "ChangeFactor": "3.00"
+                }, 
+                {
+                    "Name": "Type_Casting", 
+                    "Weight": "3.00", 
+                    "ChangeFactor": "3.00"
+                }, 
+                {
+                    "Name": "Escape_Charactors", 
+                    "Weight": "3.00", 
+                    "ChangeFactor": "3.00"
+                }, 
+                {
+                    "Name": "Rounding_Values", 
+                    "Weight": "6.00", 
+                    "ChangeFactor": "1.00"
+                }
+            ], 
+            "DisplayCorrectAnswer": True, 
+            "ChangeFactor": "0.50", 
+            "GradingMethod": 0, 
+            "Position": 60, 
+            "MaxPoints": "30.00", 
+            "CorrectAnswer": "https://imgur.com/5P6Go1O\r\n"
+        }
+    ]
+}
 # Create your views here.
 def index(request):
     return render(request, 'students/Index.html')
@@ -72,6 +294,31 @@ def getVisualization(request):
 def thankyou(request):
     return render(request, 'students/Thanks.html')
 
+def draw_topic_combination(d3):
+    # midterm topic_combination analysis by question id
+
+    trace0 = go.Bar(
+        x=d3['graph'],
+        y=d3['n'],
+        text=d3['topic_combination'],
+        marker=dict(
+            color='rgb(158,202,225)',
+            line=dict(
+                color='rgb(8,48,107)',
+                width=1.5,
+            )
+        ),
+        opacity=0.6
+    )
+
+    data = [trace0]
+    layout = go.Layout(
+        title='combination analysis',
+    )
+
+    fig = go.Figure(data=data, layout=layout)
+    return fig
+
 @login_required
 def getVisualization_2(request, qid):
     import plotly.offline as opy
@@ -91,132 +338,140 @@ def getVisualization_2(request, qid):
     ]
     student_questionslist = list(studentGrades.values[3:9].astype('float64'))
 
-    base_chart = {
-    "values": [40, 10, 10, 10, 10, 10, 10],
-    "labels": ["-", "0", "20", "40", "60", "80", "100%"],
-    "domain": {"x": [0, .48]},
-    "marker": {
-        "colors": [
-            'rgb(255, 255, 255)',
-            'rgb(255, 255, 255)',
-            'rgb(255, 255, 255)',
-            'rgb(255, 255, 255)',
-            'rgb(255, 255, 255)',
-            'rgb(255, 255, 255)',
-            'rgb(255, 255, 255)'
-        ],
-        "line": {
-            "width": 1
-        }
-    },
-    "name": "Gauge",
-    "hole": .4,
-    "type": "pie",
-    "direction": "clockwise",
-    "rotation": 108,
-    "showlegend": False,
-    "hoverinfo": "none",
-    "textinfo": "label",
-    "textposition": "outside"
-    }
-    questionDict = {
-        1: 'Question1',
-        2: 'Question2',
-        3: 'Question3',
-        4: 'Question4',
-        5: 'Question5',
-        6: 'Question6-12',
-    }
-    meter_chart = {
-        "values": [50, 16.6, 16.6,16.6,],
-        "labels": [questionDict[qid], 
-                student_grades[questionDict[qid]].describe()['25%'],
-                student_grades[questionDict[qid]].describe()['50%'],
-                student_grades[questionDict[qid]].describe()['75%']
-                ],
-        "marker": {
-            'colors': [
-                'rgb(255, 255, 255)',
-                'rgb(232,226,202)',
-                'rgb(226,210,172)',
-                'rgb(223,189,139)',
-                'rgb(223,162,103)',
-                'rgb(226,126,64)'
-            ]
-        },
-        "domain": {"x": [0, 0.48]},
-        "name": "Gauge",
-        "hole": .3,
-        "type": "pie",
-        "direction": "clockwise",
-        "rotation": 90,
-        "showlegend": False,
-        "textinfo": "label",
-        "textposition": "inside",
-        "hoverinfo": "none"
-    }
+    # base_chart = {
+    # "values": [40, 10, 10, 10, 10, 10, 10],
+    # "labels": ["-", "0", "20", "40", "60", "80", "100%"],
+    # "domain": {"x": [0, .48]},
+    # "marker": {
+    #     "colors": [
+    #         'rgb(255, 255, 255)',
+    #         'rgb(255, 255, 255)',
+    #         'rgb(255, 255, 255)',
+    #         'rgb(255, 255, 255)',
+    #         'rgb(255, 255, 255)',
+    #         'rgb(255, 255, 255)',
+    #         'rgb(255, 255, 255)'
+    #     ],
+    #     "line": {
+    #         "width": 1
+    #     }
+    # },
+    # "name": "Gauge",
+    # "hole": .4,
+    # "type": "pie",
+    # "direction": "clockwise",
+    # "rotation": 108,
+    # "showlegend": False,
+    # "hoverinfo": "none",
+    # "textinfo": "label",
+    # "textposition": "outside"
+    # }
+    # questionDict = {
+    #     1: 'Question1',
+    #     2: 'Question2',
+    #     3: 'Question3',
+    #     4: 'Question4',
+    #     5: 'Question5',
+    #     6: 'Question6-12',
+    # }
+    # meter_chart = {
+    #     "values": [50, 16.6, 16.6,16.6,],
+    #     "labels": [questionDict[qid], 
+    #             student_grades[questionDict[qid]].describe()['25%'],
+    #             student_grades[questionDict[qid]].describe()['50%'],
+    #             student_grades[questionDict[qid]].describe()['75%']
+    #             ],
+    #     "marker": {
+    #         'colors': [
+    #             'rgb(255, 255, 255)',
+    #             'rgb(232,226,202)',
+    #             'rgb(226,210,172)',
+    #             'rgb(223,189,139)',
+    #             'rgb(223,162,103)',
+    #             'rgb(226,126,64)'
+    #         ]
+    #     },
+    #     "domain": {"x": [0, 0.48]},
+    #     "name": "Gauge",
+    #     "hole": .3,
+    #     "type": "pie",
+    #     "direction": "clockwise",
+    #     "rotation": 90,
+    #     "showlegend": False,
+    #     "textinfo": "label",
+    #     "textposition": "inside",
+    #     "hoverinfo": "none"
+    # }
 
-    svgPath_Q1 = 'M 0.235 0.5 L 0.178 0.547 L 0.237 0.505 Z'
-    svgPath_medium = 'M 0.235 0.5 L 0.24 0.65 L 0.245 0.5 Z'
-    svgPath_Q3 = 'M 0.237 0.505 L 0.292 0.547 L 0.245 0.5 Z'
+    # svgPath_Q1 = 'M 0.235 0.5 L 0.178 0.547 L 0.237 0.505 Z'
+    # svgPath_medium = 'M 0.235 0.5 L 0.24 0.65 L 0.245 0.5 Z'
+    # svgPath_Q3 = 'M 0.237 0.505 L 0.292 0.547 L 0.245 0.5 Z'
 
-    if studentGrades[questionDict[qid]] < student_grades[questionDict[qid]].describe()['25%']:
-        svgPath = svgPath_Q1
-    elif studentGrades[questionDict[qid]] > student_grades[questionDict[qid]].describe()['25%'] and studentGrades['Question1'] < student_grades['Question1'].describe()['75%']:
-        svgPath = svgPath_medium
-    else:
-        svgPath = svgPath_Q3
+    # if studentGrades[questionDict[qid]] < student_grades[questionDict[qid]].describe()['25%']:
+    #     svgPath = svgPath_Q1
+    # elif studentGrades[questionDict[qid]] > student_grades[questionDict[qid]].describe()['25%'] and studentGrades['Question1'] < student_grades['Question1'].describe()['75%']:
+    #     svgPath = svgPath_medium
+    # else:
+    #     svgPath = svgPath_Q3
 
-    layout = {
-        'xaxis': {
-            'showticklabels': False,
-            'autotick': False,
-            'showgrid': False,
-            'zeroline': False,
-        },
-        'yaxis': {
-            'showticklabels': False,
-            'autotick': False,
-            'showgrid': False,
-            'zeroline': False,
-        },
-        'shapes': [
-            {
-                'type': 'path',
-                'path': svgPath,
-                'fillcolor': 'rgba(44, 160, 101, 0.5)',
-                'line': {
-                    'width': 0.5
-                },
-                'xref': 'paper',
-                'yref': 'paper'
-            }
-        ],
-        'annotations': [
-            {
-                'xref': 'paper',
-                'yref': 'paper',
-                'x': 0.23,
-                'y': 0.45,
-                'text': str(studentGrades[questionDict[qid]]),
-                'showarrow': False
-            }
-        ]
-    }
+    # layout = {
+    #     'xaxis': {
+    #         'showticklabels': False,
+    #         'autotick': False,
+    #         'showgrid': False,
+    #         'zeroline': False,
+    #     },
+    #     'yaxis': {
+    #         'showticklabels': False,
+    #         'autotick': False,
+    #         'showgrid': False,
+    #         'zeroline': False,
+    #     },
+    #     'shapes': [
+    #         {
+    #             'type': 'path',
+    #             'path': svgPath,
+    #             'fillcolor': 'rgba(44, 160, 101, 0.5)',
+    #             'line': {
+    #                 'width': 0.5
+    #             },
+    #             'xref': 'paper',
+    #             'yref': 'paper'
+    #         }
+    #     ],
+    #     'annotations': [
+    #         {
+    #             'xref': 'paper',
+    #             'yref': 'paper',
+    #             'x': 0.23,
+    #             'y': 0.45,
+    #             'text': str(studentGrades[questionDict[qid]]),
+    #             'showarrow': False
+    #         }
+    #     ]
+    # }
 
-    # we don't want the boundary now
-    base_chart['marker']['line']['width'] = 0
+    # # we don't want the boundary now
+    # base_chart['marker']['line']['width'] = 0
 
-    fig = {"data": [base_chart, meter_chart],
-        "layout": layout}
+    # fig = {"data": [base_chart, meter_chart],
+    #     "layout": layout}
+    topicLists = []
+    for ele in json['Questions']:
+        topicLists.append(', '.join([tag['Name'] for tag in ele['Rubrics']]))
+        
+
+    df = pd.DataFrame(dict(graph=['Question1', 'Question2', 'Question3', 'Question4', 'Question5', 'Question6-12'],
+                           n=list(studentGrades.values[3:9].astype('float64')), m=average, topic_combination=topicLists), ) 
+    fig = draw_topic_combination(df)
     div = opy.plot(fig, auto_open=False, output_type='div')
 
     return div, student_questionslist, average
 
 def showVisualizations(request):
     answer = EvaluationAnswer.objects.filter(user=request.user)
-    if answer:
-        return HttpResponseRedirect('/thanks/')
+    # if answer:
+    #     return HttpResponseRedirect('/thanks/')
     if request.method == 'POST':
         form = Valuations.ValuationsForm(request.POST)
         
@@ -239,17 +494,17 @@ def showVisualizations(request):
                 }
             else:
                 fig_html, student_questionslist, average = getVisualization_2(request, 1)
-                fig_html_list = []
-                for i in range(1,7):
-                    fig_html_list.append(getVisualization_2(request, i)[0])
+                # fig_html_list = []
+                # for i in range(1,7):
+                #     fig_html_list.append(getVisualization_2(request, i)[0])
 
                 context = {
                     'figure': fig_html,
-                    'figure_2': fig_html_list[1],
-                    'figure_3': fig_html_list[2],
-                    'figure_4': fig_html_list[3],
-                    'figure_5': fig_html_list[4],
-                    'figure_6': fig_html_list[5],
+                    # 'figure_2': fig_html_list[1],
+                    # 'figure_3': fig_html_list[2],
+                    # 'figure_4': fig_html_list[3],
+                    # 'figure_5': fig_html_list[4],
+                    # 'figure_6': fig_html_list[5],
                     'studentGrades': student_questionslist,
                     'classAverages': average,
                     'form': form,
@@ -271,18 +526,18 @@ def showVisualizations(request):
                 'question': question,
             }
         else:
-            fig_html_list = []
-            for i in range(1,7):
-                fig_html_list.append(getVisualization_2(request, i)[0])
+            # fig_html_list = []
+            # for i in range(1,7):
+            #     fig_html_list.append(getVisualization_2(request, i)[0])
             fig_html, student_questionslist, average = getVisualization_2(request, 1)
 
             context = {
                 'figure': fig_html,
-                'figure_2': fig_html_list[1],
-                'figure_3': fig_html_list[2],
-                'figure_4': fig_html_list[3],
-                'figure_5': fig_html_list[4],
-                'figure_6': fig_html_list[5],
+                # 'figure_2': fig_html_list[1],
+                # 'figure_3': fig_html_list[2],
+                # 'figure_4': fig_html_list[3],
+                # 'figure_5': fig_html_list[4],
+                # 'figure_6': fig_html_list[5],
                 'studentGrades': student_questionslist,
                 'classAverages': average,
                 'form': form,

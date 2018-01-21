@@ -475,7 +475,10 @@ def showVisualizations(request):
     if request.method == 'POST':
         form = Valuations.ValuationsForm(request.POST)
         
-        question = EvaluationQuestion.objects.all()[0]
+        if not request.user.MondayClass: 
+            question = EvaluationQuestion.objects.all()[1]
+        else:
+            question = EvaluationQuestion.objects.all()[0]
         
         if form.is_valid():
             answer = form.cleaned_data['answer']

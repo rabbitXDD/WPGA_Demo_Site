@@ -345,132 +345,132 @@ def getVisualization_2(request, qid):
     ]
     student_questionslist = list(studentGrades.values[3:9].astype('float64'))
 
-    # base_chart = {
-    # "values": [40, 10, 10, 10, 10, 10, 10],
-    # "labels": ["-", "0", "20", "40", "60", "80", "100%"],
-    # "domain": {"x": [0, .48]},
-    # "marker": {
-    #     "colors": [
-    #         'rgb(255, 255, 255)',
-    #         'rgb(255, 255, 255)',
-    #         'rgb(255, 255, 255)',
-    #         'rgb(255, 255, 255)',
-    #         'rgb(255, 255, 255)',
-    #         'rgb(255, 255, 255)',
-    #         'rgb(255, 255, 255)'
-    #     ],
-    #     "line": {
-    #         "width": 1
-    #     }
-    # },
-    # "name": "Gauge",
-    # "hole": .4,
-    # "type": "pie",
-    # "direction": "clockwise",
-    # "rotation": 108,
-    # "showlegend": False,
-    # "hoverinfo": "none",
-    # "textinfo": "label",
-    # "textposition": "outside"
-    # }
-    # questionDict = {
-    #     1: 'Question1',
-    #     2: 'Question2',
-    #     3: 'Question3',
-    #     4: 'Question4',
-    #     5: 'Question5',
-    #     6: 'Question6-12',
-    # }
-    # meter_chart = {
-    #     "values": [50, 16.6, 16.6,16.6,],
-    #     "labels": [questionDict[qid], 
-    #             student_grades[questionDict[qid]].describe()['25%'],
-    #             student_grades[questionDict[qid]].describe()['50%'],
-    #             student_grades[questionDict[qid]].describe()['75%']
-    #             ],
-    #     "marker": {
-    #         'colors': [
-    #             'rgb(255, 255, 255)',
-    #             'rgb(232,226,202)',
-    #             'rgb(226,210,172)',
-    #             'rgb(223,189,139)',
-    #             'rgb(223,162,103)',
-    #             'rgb(226,126,64)'
-    #         ]
-    #     },
-    #     "domain": {"x": [0, 0.48]},
-    #     "name": "Gauge",
-    #     "hole": .3,
-    #     "type": "pie",
-    #     "direction": "clockwise",
-    #     "rotation": 90,
-    #     "showlegend": False,
-    #     "textinfo": "label",
-    #     "textposition": "inside",
-    #     "hoverinfo": "none"
-    # }
+    base_chart = {
+    "values": [40, 10, 10, 10, 10, 10, 10],
+    "labels": ["-", "0", "20", "40", "60", "80", "100%"],
+    "domain": {"x": [0, .48]},
+    "marker": {
+        "colors": [
+            'rgb(255, 255, 255)',
+            'rgb(255, 255, 255)',
+            'rgb(255, 255, 255)',
+            'rgb(255, 255, 255)',
+            'rgb(255, 255, 255)',
+            'rgb(255, 255, 255)',
+            'rgb(255, 255, 255)'
+        ],
+        "line": {
+            "width": 1
+        }
+    },
+    "name": "Gauge",
+    "hole": .4,
+    "type": "pie",
+    "direction": "clockwise",
+    "rotation": 108,
+    "showlegend": False,
+    "hoverinfo": "none",
+    "textinfo": "label",
+    "textposition": "outside"
+    }
+    questionDict = {
+        1: 'Question1',
+        2: 'Question2',
+        3: 'Question3',
+        4: 'Question4',
+        5: 'Question5',
+        6: 'Question6-12',
+    }
+    meter_chart = {
+        "values": [50, 16.6, 16.6,16.6,],
+        "labels": [questionDict[qid], 
+                student_grades[questionDict[qid]].describe()['25%'],
+                student_grades[questionDict[qid]].describe()['50%'],
+                student_grades[questionDict[qid]].describe()['75%']
+                ],
+        "marker": {
+            'colors': [
+                'rgb(255, 255, 255)',
+                'rgb(232,226,202)',
+                'rgb(226,210,172)',
+                'rgb(223,189,139)',
+                'rgb(223,162,103)',
+                'rgb(226,126,64)'
+            ]
+        },
+        "domain": {"x": [0, 0.48]},
+        "name": "Gauge",
+        "hole": .3,
+        "type": "pie",
+        "direction": "clockwise",
+        "rotation": 90,
+        "showlegend": False,
+        "textinfo": "label",
+        "textposition": "inside",
+        "hoverinfo": "none"
+    }
 
-    # svgPath_Q1 = 'M 0.235 0.5 L 0.178 0.547 L 0.237 0.505 Z'
-    # svgPath_medium = 'M 0.235 0.5 L 0.24 0.65 L 0.245 0.5 Z'
-    # svgPath_Q3 = 'M 0.237 0.505 L 0.292 0.547 L 0.245 0.5 Z'
+    svgPath_Q1 = 'M 0.235 0.5 L 0.178 0.547 L 0.237 0.505 Z'
+    svgPath_medium = 'M 0.235 0.5 L 0.24 0.65 L 0.245 0.5 Z'
+    svgPath_Q3 = 'M 0.237 0.505 L 0.292 0.547 L 0.245 0.5 Z'
 
-    # if studentGrades[questionDict[qid]] < student_grades[questionDict[qid]].describe()['25%']:
-    #     svgPath = svgPath_Q1
-    # elif studentGrades[questionDict[qid]] > student_grades[questionDict[qid]].describe()['25%'] and studentGrades['Question1'] < student_grades['Question1'].describe()['75%']:
-    #     svgPath = svgPath_medium
-    # else:
-    #     svgPath = svgPath_Q3
+    if studentGrades[questionDict[qid]] < student_grades[questionDict[qid]].describe()['25%']:
+        svgPath = svgPath_Q1
+    elif studentGrades[questionDict[qid]] > student_grades[questionDict[qid]].describe()['25%'] and studentGrades['Question1'] < student_grades['Question1'].describe()['75%']:
+        svgPath = svgPath_medium
+    else:
+        svgPath = svgPath_Q3
 
-    # layout = {
-    #     'xaxis': {
-    #         'showticklabels': False,
-    #         'autotick': False,
-    #         'showgrid': False,
-    #         'zeroline': False,
-    #     },
-    #     'yaxis': {
-    #         'showticklabels': False,
-    #         'autotick': False,
-    #         'showgrid': False,
-    #         'zeroline': False,
-    #     },
-    #     'shapes': [
-    #         {
-    #             'type': 'path',
-    #             'path': svgPath,
-    #             'fillcolor': 'rgba(44, 160, 101, 0.5)',
-    #             'line': {
-    #                 'width': 0.5
-    #             },
-    #             'xref': 'paper',
-    #             'yref': 'paper'
-    #         }
-    #     ],
-    #     'annotations': [
-    #         {
-    #             'xref': 'paper',
-    #             'yref': 'paper',
-    #             'x': 0.23,
-    #             'y': 0.45,
-    #             'text': str(studentGrades[questionDict[qid]]),
-    #             'showarrow': False
-    #         }
-    #     ]
-    # }
+    layout = {
+        'xaxis': {
+            'showticklabels': False,
+            'autotick': False,
+            'showgrid': False,
+            'zeroline': False,
+        },
+        'yaxis': {
+            'showticklabels': False,
+            'autotick': False,
+            'showgrid': False,
+            'zeroline': False,
+        },
+        'shapes': [
+            {
+                'type': 'path',
+                'path': svgPath,
+                'fillcolor': 'rgba(44, 160, 101, 0.5)',
+                'line': {
+                    'width': 0.5
+                },
+                'xref': 'paper',
+                'yref': 'paper'
+            }
+        ],
+        'annotations': [
+            {
+                'xref': 'paper',
+                'yref': 'paper',
+                'x': 0.23,
+                'y': 0.45,
+                'text': str(studentGrades[questionDict[qid]]),
+                'showarrow': False
+            }
+        ]
+    }
 
-    # # we don't want the boundary now
-    # base_chart['marker']['line']['width'] = 0
+    # we don't want the boundary now
+    base_chart['marker']['line']['width'] = 0
 
-    # fig = {"data": [base_chart, meter_chart],
-    #     "layout": layout}
-    topicLists = []
-    for ele in json['Questions']:
-        topicLists.append(', '.join([tag['Name'] for tag in ele['Rubrics']]))
+    fig = {"data": [base_chart, meter_chart],
+        "layout": layout}
+    # topicLists = []
+    # for ele in json['Questions']:
+    #     topicLists.append(', '.join([tag['Name'] for tag in ele['Rubrics']]))
         
 
-    df = pd.DataFrame(dict(graph=['Question1', 'Question2', 'Question3', 'Question4', 'Question5', 'Question6-12'],
-                           n=list(studentGrades.values[3:9].astype('float64')), m=average, topic_combination=topicLists), ) 
-    fig = draw_topic_combination(df)
+    # df = pd.DataFrame(dict(graph=['Question1', 'Question2', 'Question3', 'Question4', 'Question5', 'Question6-12'],
+    #                        n=list(studentGrades.values[3:9].astype('float64')), m=average, topic_combination=topicLists), ) 
+    # fig = draw_topic_combination(df)
     div = opy.plot(fig, auto_open=False, output_type='div')
 
     return div, student_questionslist, average
@@ -622,8 +622,10 @@ def showVisualizations(request):
     if request.method == 'POST':
         form = Valuations.ValuationsForm(request.POST)
         
-
-        question = EvaluationQuestion.objects.all()[0]
+        if not request.user.MondayClass: 
+            question = EvaluationQuestion.objects.all()[1]
+        else:
+            question = EvaluationQuestion.objects.all()[0]
         
         if form.is_valid():
             answer = form.cleaned_data['answer']
@@ -632,6 +634,36 @@ def showVisualizations(request):
 
             return HttpResponseRedirect('/thanks/')
         else:
+            if request.user.MondayClass:
+                fig_html, student_questionslist, average = getVisualization(request)
+                context = {
+                    'figure': fig_html,
+                    'studentGrades': student_questionslist,
+                    'classAverages': average,
+                    'form': form,
+                    'question': question,
+                }
+            else:
+                fig_html, student_questionslist, average = getVisualization_2(request, 1)
+                fig_html_list = []
+                for i in range(1,7):
+                    fig_html_list.append(getVisualization_2(request, i)[0])
+
+                context = {
+                    'figure': fig_html,
+                    'figure_2': fig_html_list[1],
+                    'figure_3': fig_html_list[2],
+                    'figure_4': fig_html_list[3],
+                    'figure_5': fig_html_list[4],
+                    'figure_6': fig_html_list[5],
+                    'studentGrades': student_questionslist,
+                    'classAverages': average,
+                    'form': form,
+                    'question': question,
+                }
+    else:
+        form = Valuations.ValuationsForm
+        question = EvaluationQuestion.objects.all()[0]
 
             fig_html, student_questionslist, average = getVisualization(request)
             context = {

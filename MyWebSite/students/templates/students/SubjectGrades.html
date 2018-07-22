@@ -3,48 +3,64 @@
 {% block title %}SubjectGrades{% endblock %}
 
 {% block content %}
-    <h2>Subject Scores Data</h2>
+    <!-- <h2>Students Topic Combination Analysis</h2>
 
-    <table class="table table-striped">
-    <tr>
-        <td>subject</td>
-        <td>subject1</td>
-        <td>subject2</td>
-        <td>subject3</td>
-    </tr>
+    <div class="list-group" style="width:15em; position:relative;display: inline-block; top:-23em;">
+        <a href="#" class="list-group-item active">Exam 1</a>
+        <a href="#" class="list-group-item">Exam 2</a>
+        <a href="#" class="list-group-item">Exam 3</a>
+    </div>
+    <div style="width:80%; position:relative; top: 50px; display: inline-block; ">
+        <h1>Exam 1 </h1>
+        <img src="https://imgur.com/LFUTWp6.png" style="width:70%; position:relative; left:8%; display: inline-block;">
+        <ul class="pagination" style="width:29%; position:relative; top: -16em;left:5%; display: inline-block;">
+            <li><a href="#">By questions</a></li>
+            <li class="active"><a href="#">By topics</a></li>
+        </ul>
+        <img src="https://imgur.com/KnX89O7.png" style="width:29%; position:relative; top: -17em;left:77%; display: inline-block;">
+    </div>     -->
 
-    {% for data in subjectsList %}
-        <tr>
-            <td>No.{{ data.0 }} exam</td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>total</td>
-            <td>{{ data.1 }}</td>
-            <td>{{ data.2 }}</td>
-            <td>{{ data.3 }}</td>
-        </tr>
-        <tr>
-            <td>average</td>
-            <td>{{ data.4 }}</td>
-            <td>{{ data.5 }}</td>
-            <td>{{ data.6 }}</td>
-        </tr>
-        <tr>
-            <td>number of students in the exam</td>
-            <td>{{ data.7 }}</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr> 
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        
-    {% endfor %}
-    </table>
+    <h2>My Exams</h2>
+    <div class="list-group" style="width:15em; position:relative;display: inline-block; top:-30em;">
+        <a href="#" class="list-group-item active">Exam 1</a>
+        <a href="#" class="list-group-item">Exam 2</a>
+        <a href="#" class="list-group-item">Exam 3</a>
+    </div>
+    <div style="width:80%; position:relative; top: 50px; display: inline-block; ">
+        <h1>Exam 1 </h1>
+        <table class="table table-striped" style="position:relative;">
+            <tbody style="width:100%;">
+                <tr>
+                    <td>Question1</td>
+                    <td>Question2</td>
+                    <td>Question3</td>
+                    <td>Question4</td>
+                    <td>Question5</td>
+                    <td>Question6-12</td>
+                </tr>
+
+
+                <tr>
+                    <td>15.0</td>
+                    <td>12.0</td>
+                    <td>15.0</td>
+                    <td>15.0</td>
+                    <td>4.0</td>
+                    <td>10.0</td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="visual" style="width:50%;height:20%; ">
+            <img src="https://imgur.com/icisGTJ.png" style="display: inline-block; ">
+            <ul style="display: inline-block; position:relative; top: -30em; left:150%;">
+                <li>First Review Attempt: Oct. 30, 2017, 1:23 a.m.</li>
+                <li>Last Review Attempt: Nov. 1, 2017, 2:13 a.m.</li>
+                <li>Class Average: 70.15</li>
+                <li>Standard Deviation: 18.73</li>
+                <li>My exam performance: 65.71%</li>
+                <li>Average Class Performance: 66.81%</li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}
+

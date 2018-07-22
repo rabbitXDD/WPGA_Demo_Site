@@ -257,9 +257,13 @@ json = {
 def index(request):
     return render(request, 'students/Index.html')
 
+# vid 1, monday class
 def getVisualization(request):
     
-    student_grades = pd.read_csv('Exam_1_Exam_1 (copy).csv')
+    if request.user.MondayClass:
+        student_grades = pd.read_csv('Exam_1_Exam_1 (copy).csv')
+    else:
+        student_grades = pd.read_csv('Exam_1_Exam_1.csv')
 
     id = int(request.user.username)
     studentGrades = student_grades.loc[student_grades['Student ID']==id].iloc[0]
@@ -323,7 +327,10 @@ def draw_topic_combination(d3):
 def getVisualization_2(request, qid):
     import plotly.offline as opy
 
-    student_grades = pd.read_csv('Exam_1_Exam_1.csv')
+    if request.user.MondayClass:
+        student_grades = pd.read_csv('Exam_1_Exam_1 (copy).csv')
+    else:
+        student_grades = pd.read_csv('Exam_1_Exam_1.csv')
 
     id = int(request.user.username)
     studentGrades = student_grades.loc[student_grades['Student ID']==id].iloc[0]
@@ -468,10 +475,150 @@ def getVisualization_2(request, qid):
 
     return div, student_questionslist, average
 
+@login_required
+def getVisualization_3(request, qid):
+    import plotly.offline as opy
+
+    if request.user.MondayClass:
+        student_grades = pd.read_csv('Exam_1_Exam_1 (copy).csv')
+    else:
+        student_grades = pd.read_csv('Exam_1_Exam_1.csv')
+
+    id = int(request.user.username)
+    studentGrades = student_grades.loc[student_grades['Student ID']==id].iloc[0]
+
+    average = [
+        student_grades['Question1'].mean(),
+        student_grades['Question2'].mean(),
+        student_grades['Question3'].mean(),
+        student_grades['Question4'].mean(),
+        student_grades['Question5'].mean(),
+        student_grades['Question6-12'].mean(),
+    ]
+    student_questionslist = list(studentGrades.values[3:9].astype('float64'))
+
+    base_chart = {
+    "values": [40, 10, 10, 10, 10, 10, 10],
+    "labels": ["-", "0", "20", "40", "60", "80", "100%"],
+    "domain": {"x": [0, .48]},
+    "marker": {
+        "colors": [
+            'rgb(255, 255, 255)',
+            'rgb(255, 255, 255)',
+            'rgb(255, 255, 255)',
+            'rgb(255, 255, 255)',
+            'rgb(255, 255, 255)',
+            'rgb(255, 255, 255)',
+            'rgb(255, 255, 255)'
+        ],
+        "line": {
+            "width": 1
+        }
+    },
+    "name": "Gauge",
+    "hole": .4,
+    "type": "pie",
+    "direction": "clockwise",
+    "rotation": 108,
+    "showlegend": False,
+    "hoverinfo": "none",
+    "textinfo": "label",
+    "textposition": "outside"
+    }
+    questionDict = {
+        1: 'Question1',
+        2: 'Question2',
+        3: 'Question3',
+        4: 'Question4',
+        5: 'Question5',
+        6: 'Question6-12',
+    }
+    meter_chart = {
+        "values": [50, 16.6, 16.6,16.6,],
+        "labels": [questionDict[qid], 
+                student_grades[questionDict[qid]].describe()['25%'],
+                student_grades[questionDict[qid]].describe()['50%'],
+                student_grades[questionDict[qid]].describe()['75%']
+                ],
+        "marker": {
+            'colors': [
+                'rgb(255, 255, 255)',
+                'rgb(232,226,202)',
+                'rgb(226,210,172)',
+                'rgb(223,189,139)',
+                'rgb(223,162,103)',
+                'rgb(226,126,64)'
+            ]
+        },
+        "domain": {"x": [0, 0.48]},
+        "name": "Gauge",
+        "hole": .3,
+        "type": "pie",
+        "direction": "clockwise",
+        "rotation": 90,
+        "showlegend": False,
+        "textinfo": "label",
+        "textposition": "inside",
+        "hoverinfo": "none"
+    }
+
+    svgPath_Q1 = 'M 0.235 0.5 L 0.178 0.547 L 0.237 0.505 Z'
+    svgPath_medium = 'M 0.235 0.5 L 0.24 0.65 L 0.245 0.5 Z'
+    svgPath_Q3 = 'M 0.237 0.505 L 0.292 0.547 L 0.245 0.5 Z'
+
+    if studentGrades[questionDict[qid]] < student_grades[questionDict[qid]].describe()['25%']:
+        svgPath = svgPath_Q1
+    elif studentGrades[questionDict[qid]] > student_grades[questionDict[qid]].describe()['25%'] and studentGrades['Question1'] < student_grades['Question1'].describe()['75%']:
+        svgPath = svgPath_medium
+    else:
+        svgPath = svgPath_Q3
+
+    layout = {
+        'xaxis': {
+            'showticklabels': False,
+            'autotick': False,
+            'showgrid': False,
+            'zeroline': False,
+        },
+        'yaxis': {
+            'showticklabels': False,
+            'autotick': False,
+            'showgrid': False,
+            'zeroline': False,
+        },
+        'shapes': [
+            {
+                'type': 'path',
+                'path': svgPath,
+                'fillcolor': 'rgba(44, 160, 101, 0.5)',
+                'line': {
+                    'width': 0.5
+                },
+                'xref': 'paper',
+                'yref': 'paper'
+            }
+        ],
+        'annotations': [
+            {
+                'xref': 'paper',
+                'yref': 'paper',
+                'x': 0.23,
+                'y': 0.45,
+                'text': str(studentGrades[questionDict[qid]]),
+                'showarrow': False
+            }
+        ]
+    }
+
+    # we don't want the boundary now
+    base_chart['marker']['line']['width'] = 0
+
+    fig = {"data": [base_chart, meter_chart],
+        "layout": layout}
+    div = opy.plot(fig, auto_open=False, output_type='div')
+    return div
 def showVisualizations(request):
-    answer = EvaluationAnswer.objects.filter(user=request.user)
-    # if answer:
-    #     return HttpResponseRedirect('/thanks/')
+
     if request.method == 'POST':
         form = Valuations.ValuationsForm(request.POST)
         
@@ -484,6 +631,7 @@ def showVisualizations(request):
             answer = form.cleaned_data['answer']
             answer = EvaluationAnswer(question=question, answer=answer, user=request.user)
             answer.save()
+
             return HttpResponseRedirect('/thanks/')
         else:
             if request.user.MondayClass:
@@ -517,10 +665,7 @@ def showVisualizations(request):
         form = Valuations.ValuationsForm
         question = EvaluationQuestion.objects.all()[0]
 
-        if request.user.MondayClass:
             fig_html, student_questionslist, average = getVisualization(request)
-            div = ''
-
             context = {
                 'figure': fig_html,
                 'studentGrades': student_questionslist,
@@ -528,11 +673,49 @@ def showVisualizations(request):
                 'form': form,
                 'question': question,
             }
+    else:
+        form = Valuations.ValuationsForm
+        question = EvaluationQuestion.objects.all()[0]
+
+
+        fig_html, student_questionslist, average = getVisualization(request)
+
+        context = {
+            'figure': fig_html,
+            'studentGrades': student_questionslist,
+            'classAverages': average,
+            'form': form,
+            'question': question,
+        }
+
+    # try:
+    # except:
+    #     logging.exception('Got exception on main handler')
+    #     raise Http404("Something goes wrong")
+        
+    return render(request, 'students/Visualizations.html', context)
+
+@login_required
+def showVisualizations_2(request):
+    answer = EvaluationAnswer.objects.filter(user=request.user)
+    # if answer:
+    #     return HttpResponseRedirect('/thanks/')
+    if request.method == 'POST':
+        form = Valuations.ValuationsForm(request.POST)
+        
+        question = EvaluationQuestion.objects.all()[1]
+        
+        if form.is_valid():
+            answer = form.cleaned_data['answer']
+            answer = EvaluationAnswer(question=question, answer=answer, user=request.user)
+            answer.save()
+
+            return HttpResponseRedirect('/thanks/')
         else:
+            fig_html, student_questionslist, average = getVisualization_2(request, 1)
             # fig_html_list = []
             # for i in range(1,7):
             #     fig_html_list.append(getVisualization_2(request, i)[0])
-            fig_html, student_questionslist, average = getVisualization_2(request, 1)
 
             context = {
                 'figure': fig_html,
@@ -546,6 +729,110 @@ def showVisualizations(request):
                 'form': form,
                 'question': question,
             }
+        fig_html, student_questionslist, average = getVisualization_2(request, 1)
+            # fig_html_list = []
+            # for i in range(1,7):
+            #     fig_html_list.append(getVisualization_2(request, i)[0])
+
+        context = {
+            'figure': fig_html,
+            # 'figure_2': fig_html_list[1],
+            # 'figure_3': fig_html_list[2],
+            # 'figure_4': fig_html_list[3],
+            # 'figure_5': fig_html_list[4],
+            # 'figure_6': fig_html_list[5],
+            'studentGrades': student_questionslist,
+            'classAverages': average,
+            'form': form,
+            'question': question,
+        }
+    else:
+        form = Valuations.ValuationsForm
+        question = EvaluationQuestion.objects.all()[1]
+
+
+        # fig_html_list = []
+        # for i in range(1,7):
+        #     fig_html_list.append(getVisualization_2(request, i)[0])
+        fig_html, student_questionslist, average = getVisualization_2(request, 1)
+
+        context = {
+            'figure': fig_html,
+            # 'figure_2': fig_html_list[1],
+            # 'figure_3': fig_html_list[2],
+            # 'figure_4': fig_html_list[3],
+            # 'figure_5': fig_html_list[4],
+            # 'figure_6': fig_html_list[5],
+            'studentGrades': student_questionslist,
+            'classAverages': average,
+            'form': form,
+            'question': question,
+        }
+
+    # try:
+    # except:
+    #     logging.exception('Got exception on main handler')
+    #     raise Http404("Something goes wrong")
+        
+    return render(request, 'students/Visualizations.html', context)
+
+@login_required
+def showVisualizations_3(request):
+    # answer = EvaluationAnswer.objects.filter(user=request.user)
+    # if answer:
+    #     return HttpResponseRedirect('/thanks/')
+    if request.method == 'POST':
+        form = Valuations.ValuationsForm(request.POST)
+        
+        question = EvaluationQuestion.objects.all()[1]
+        
+        if form.is_valid():
+            answer = form.cleaned_data['answer']
+            answer = EvaluationAnswer(question=question, answer=answer, user=request.user)
+            answer.save()
+
+            return HttpResponseRedirect('/thanks/')
+        else:
+            fig_html, student_questionslist, average = getVisualization_2(request, 1)
+            fig_html_list = []
+            for i in range(1,7):
+                fig_html_list.append(getVisualization_2(request, i))
+
+            context = {
+                'figure': fig_html,
+                'figure_2': fig_html_list[1],
+                'figure_3': fig_html_list[2],
+                'figure_4': fig_html_list[3],
+                'figure_5': fig_html_list[4],
+                'figure_6': fig_html_list[5],
+                'studentGrades': student_questionslist,
+                'classAverages': average,
+                'form': form,
+                'question': question,
+            }
+
+
+    else:
+        form = Valuations.ValuationsForm
+        question = EvaluationQuestion.objects.all()[1]
+
+
+        fig_html_list = []
+        for i in range(1,7):
+            fig_html_list.append(getVisualization_3(request, i))
+
+        context = {
+            'figure': fig_html_list[0],
+            'figure_2': fig_html_list[1],
+            'figure_3': fig_html_list[2],
+            'figure_4': fig_html_list[3],
+            'figure_5': fig_html_list[4],
+            'figure_6': fig_html_list[5],
+            # 'studentGrades': student_questionslist,
+            # 'classAverages': average,
+            'form': form,
+            'question': question,
+        }
 
     # try:
     # except:
@@ -664,7 +951,7 @@ def signup(request):
                 )
 
                 login(request, user)
-                return redirect('/students/')
+                return redirect('/')
 
             except:
                 logging.exception('Got exception on main handler')
@@ -687,7 +974,7 @@ def signin(request):
         if user is not None:
             login(request, user)
             # Redirect to a success page.
-            return redirect('/students/')
+            return redirect('/')
         else:
             # Return an 'invalid login' error message.
             pass

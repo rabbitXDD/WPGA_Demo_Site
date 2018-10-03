@@ -24,43 +24,63 @@
         </tr>
 
     </table>
-    <div id="visual" style="width:50%;height:20%;">
-        {{ figure|safe }}
-        {{ figure_2|safe}}
-        {{ figure_3|safe}}
-        {{ figure_4|safe}}
-        {{ figure_5|safe}}
-        {{ figure_6|safe}}
-    </div>
 
-    <div class="forms" style="position:fixed;left:50%; bottom:35%">
-        <form action="/students/" method="post">
-            {% csrf_token %}
-            <h3>{{question}}</h3>
-            {% if form.errors %}
-                {% for field in form %}
-                    {% for error in field.errors %}
+    <section style="height: 70%;">
+        <nav class="list-group" style="float:left;width:15%;">
+            <a href="#" class="list-group-item list-group-item-action">Question-based topic combination analysis</a>
+            <a href="#" class="list-group-item list-group-item-action">Topics Combination Analysis based on different student grades' group</a>
+            <a href="#" class="list-group-item list-group-item-action">Cross Topics Performance Analysis of Exam1</a>
+            <a href="#" class="list-group-item list-group-item-action disabled">Cross-Exam Topic-Combination-Analysis</a>
+        </nav>
+    
+        <div id="visual" style="float:left;width:50%;height:20%;">
+            {{ figure|safe }}
+            {{ figure_2|safe}}
+            {{ figure_3|safe}}
+            {{ figure_4|safe}}
+            {{ figure_5|safe}}
+            {{ figure_6|safe}}
+        </div>
+    
+        <div class="forms" style="float:left;width:35%;left:-50%;height:20%; bottom:35%">
+            <form action="/students/" method="post">
+                {% csrf_token %}
+                <h3>{{question}}</h3>
+                {% if form.errors %}
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <div class="alert alert-danger">
+                                <strong>{{ error|escape }}</strong>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
                         <div class="alert alert-danger">
                             <strong>{{ error|escape }}</strong>
                         </div>
                     {% endfor %}
+                {% endif %}
+                {% for radio in form.answer %}
+                <div class="myradio">
+                    {{ radio }}
+                </div>
                 {% endfor %}
-                {% for error in form.non_field_errors %}
-                    <div class="alert alert-danger">
-                        <strong>{{ error|escape }}</strong>
-                    </div>
-                {% endfor %}
-            {% endif %}
-            {% for radio in form.answer %}
-            <div class="myradio">
-                {{ radio }}
-            </div>
-            {% endfor %}
+    
+                <input type="submit" class="btn btn-primary">
+            </form>
+    
+        </div>
+        
+    </section>
+    <section style="height: 30%;">
+        <div style="float:left;width:50%;position:relative;left:25%">
+            Compare two figures, question-based analysis shows that Q5 is the question which students perform worst. Teachers can find that most tags of Q5 is about “Javadoc”, so Javadoc is the topic that should be reviewed after exam. However, some tags shows in exam with other relatively easy tags, so teacher can not find this topic need to be reviewed just by question-based analysis. That’s why we should consider both question-based and topic-based anaysis.
+        </div>
+    </section>
 
-            <input type="submit" class="btn btn-primary">
-        </form>
+    
 
-    </div>
+    
 
     <!-- {% if studentsList%}
     {% else %}

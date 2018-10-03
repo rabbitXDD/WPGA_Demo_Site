@@ -468,7 +468,7 @@ def getVisualization_2(request, qid):
 
     return div, student_questionslist, average
 
-def showVisualizations(request):
+def showVisualizations(request, visualizationId=None):
     answer = EvaluationAnswer.objects.filter(user=request.user)
     # if answer:
     #     return HttpResponseRedirect('/thanks/')

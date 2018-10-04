@@ -1,8 +1,17 @@
 {% extends "students/Base.html" %}
-
+{% load staticfiles %}
 {% block title %}Visualizations{% endblock %}
 
 {% block content %}
+<script>
+    $(function() {
+        $('.list-group-item.list-group-item-action').click(function(){
+            var imgID = $(this).attr('value');
+            $(".visualizations").hide();
+            $('#' + imgID).show();
+        });
+    });
+</script>
     <table class="table table-striped">
         <tr>
             <td>Question1(Box class)</td>
@@ -27,10 +36,12 @@
 
     <section style="height: 70%;">
         <nav class="list-group" style="float:left;width:15%;">
-            <a href="#" class="list-group-item list-group-item-action">Question-based topic combination analysis</a>
-            <a href="#" class="list-group-item list-group-item-action">Topics Combination Analysis based on different student grades' group</a>
-            <a href="#" class="list-group-item list-group-item-action">Cross Topics Performance Analysis of Exam1</a>
-            <a href="#" class="list-group-item list-group-item-action disabled">Cross-Exam Topic-Combination-Analysis</a>
+            <a href="#" id="btn1" value="img1" class="list-group-item list-group-item-action">Question-based topic combination analysis</a>
+            <a href="#" id="btn2" value="img2" class="list-group-item list-group-item-action">Topics Combination Analysis based on different student grades' group</a>
+            <a href="#" id="btn3" value="img3" class="list-group-item list-group-item-action">Cross Topics Performance Analysis of Exam1</a>
+            <a href="#" id="btn4" class="list-group-item list-group-item-action disabled">Cross-Exam Topic-Combination-Analysis</a>
+            <a href="#" id="btn5" value="img5" class="list-group-item list-group-item-action">Radar diagram of Q3 in Exam1</a>
+            <a href="#" id="btn6" value="img6" class="list-group-item list-group-item-action">Radar diagram in Exam1</a>
         </nav>
     
         <!-- <div id="visual" style="float:left;width:50%;height:20%;">
@@ -42,7 +53,12 @@
             {{ figure_6|safe}}
         </div> -->
         <div id="visual" style="float:left;width:50%;height:15%;">
-            <img src="/i/eg_tulip.jpg"  alt="Question-based topic combination analysis" />
+            <img id="img1" class="visualizations" src="{% static "images/Question-based-topic-combination-analysis.png" %}"  style="width:40em;height:25em; " alt="Question-based topic combination analysis" />
+            <img id="img2" class="visualizations" src="{% static "images/Topics-Combination-Analysis-based-on-different-student-grades.png" %}"  style="width:40em;height:25em;display:none" alt="Topics-Combination-Analysis-based-on-different-student-grades" />
+            <img id="img3" class="visualizations" src="{% static "images/Cross-Topics-Performance-Analysis-of-Exam1.png" %}"  style="width:40em;height:25em;display:none" alt="Cross-Topics-Performance-Analysis-of-Exam1" />
+            <img id="img4" class="visualizations" src="{% static "images/Cross-Exam-Topic-Combination-Analysis.png" %}"  style="width:40em;height:25em;display:none" alt="Cross-Exam-Topic-Combination-Analysis" />
+            <img id="img5" class="visualizations" src="{% static "images/Radar-diagram-of-Q3-in-Exam1.png" %}"  style="width:40em;height:25em;display:none" alt="Radar-diagram-of-Q3-in-Exam1" />
+            <img id="img6" class="visualizations" src="{% static "images/Radar-diagram-in-Exam1.png" %}"  style="width:40em;height:25em;display:none" alt="Radar-diagram-in-Exam1" />
         </div>
     
         <div class="forms" style="float:left;width:35%;left:-50%;height:20%; bottom:35%">

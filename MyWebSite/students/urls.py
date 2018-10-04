@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^thanks/$', views.thankyou, name='thankyou'),
     url(r'students/signup/$', views.signup, name='signup'),
     url(r'students/signin/$', views.signin, name='signin'),
+    url(r'students/logout/$', views.logoutView, name='logout'),
     url(r'students/(?P<visualizationId>\w+)', views.showVisualizations, name='students'),
     url(r'students/create/$', views.createStudent, name='createStudent'),
     url(r'subjects/$', views.getSubjects, name='subjects'),

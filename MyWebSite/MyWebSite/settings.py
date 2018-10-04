@@ -104,6 +104,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    ]
+
 LOGIN_URL = '/students/signin'
 
 AUTH_USER_MODEL = 'students.User'

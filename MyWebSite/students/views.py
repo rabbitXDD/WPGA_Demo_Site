@@ -687,7 +687,7 @@ def signin(request):
         if user is not None:
             login(request, user)
             # Redirect to a success page.
-            return redirect('/students/')
+            return redirect('/students/1')
         else:
             # Return an 'invalid login' error message.
             pass

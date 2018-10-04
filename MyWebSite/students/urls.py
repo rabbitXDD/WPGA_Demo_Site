@@ -15,7 +15,7 @@ urlpatterns = [
     url(r'students/search/$', views.search, name='search'),
     url(r'students/rank/$', views.rank, name='rank'),
     url(r'logout/$', views.logoutView, name='logout'),
-    url(r'^students/pagination$', views.StudentsList.as_view(), name='paginatedStudents'),
-    url(r'^students/pagination/ajax/$', views.ajaxView, name='ajaxScrollUpStudents'),
-    url(r'^students/pagination/ajax/_scroll/$', views.paginateStudentsByAjax),
+    # url(r'^students/pagination$', views.StudentsList.as_view(), name='paginatedStudents'),
+    # url(r'^students/pagination/ajax/$', views.ajaxView, name='ajaxScrollUpStudents'),
+    # url(r'^students/pagination/ajax/_scroll/$', views.paginateStudentsByAjax),
 ]

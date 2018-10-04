@@ -118,3 +118,5 @@ def show_toolbar(request):
 DEBUG_TOOLBAR_CONFIG = {
     "SHOW_TOOLBAR_CALLBACK" : show_toolbar,
 }
+
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '140.119.19.72']

@@ -470,6 +470,15 @@ def getVisualization_2(request, qid):
 
 def showVisualizations(request, visualizationId=None):
     answer = EvaluationAnswer.objects.filter(user=request.user)
+    visualizationId = int(visualizationId)
+
+    visualization_dict = {
+        1: 'question-based_topic_combination_analysis.html', 
+        2: 'Topics_Combination_Analysis_based_on_different_student_grades_group.html',
+        3: 'Cross-Exam-Topic-Combination-Analysis.html', 
+        4: 'radar_diagram_Q3_Exam1.html', 
+        5: 'radar_diagram_Exam1.html',
+    }
     # if answer:
     #     return HttpResponseRedirect('/thanks/')
     if request.method == 'POST':
@@ -494,7 +503,7 @@ def showVisualizations(request, visualizationId=None):
                     'classAverages': average,
                     'form': form,
                     'question': question,
-                    'template_name': 'test_visual_div.html', 
+                    'template_name': visualization_dict[visualizationId], 
                 }
             else:
                 fig_html, student_questionslist, average = getVisualization_2(request, 1)
@@ -513,12 +522,12 @@ def showVisualizations(request, visualizationId=None):
                     'classAverages': average,
                     'form': form,
                     'question': question,
-                    'template_name': 'test_visual_div.html', 
+                    'template_name': visualization_dict[visualizationId], 
                 }
     else:
         form = Valuations.ValuationsForm
         question = EvaluationQuestion.objects.all()[0]
-
+        
         if request.user.MondayClass:
             fig_html, student_questionslist, average = getVisualization(request)
             div = ''
@@ -529,7 +538,7 @@ def showVisualizations(request, visualizationId=None):
                 'classAverages': average,
                 'form': form,
                 'question': question,
-                'template_name': 'test_visual_div.html', 
+                'template_name': visualization_dict[visualizationId], 
             }
         else:
             # fig_html_list = []
@@ -548,7 +557,7 @@ def showVisualizations(request, visualizationId=None):
                 'classAverages': average,
                 'form': form,
                 'question': question,
-                'template_name': 'test_visual_div.html', 
+                'template_name': visualization_dict[visualizationId], 
             }
 
     # try:

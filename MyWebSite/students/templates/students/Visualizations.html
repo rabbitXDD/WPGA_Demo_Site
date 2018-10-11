@@ -45,12 +45,12 @@
 
     <section style="height: 70%;">
         <nav class="list-group" style="float:left;width:15%;">
-            <a href="#" id="btn1" value="img1" class="list-group-item list-group-item-action">Question-based topic combination analysis</a>
-            <a href="#" id="btn2" value="img2" class="list-group-item list-group-item-action">Topics Combination Analysis based on different student grades' group</a>
-            <a href="#" id="btn3" value="img3" class="list-group-item list-group-item-action">Cross Topics Performance Analysis of Exam1</a>
+            <a href="/students/1" id="btn1" value="img1" class="list-group-item list-group-item-action">Question-based topic combination analysis</a>
+            <a href="/students/2" id="btn2" value="img2" class="list-group-item list-group-item-action">Topics Combination Analysis based on different student grades' group</a>
+            <a href="/students/3" id="btn3" value="img3" class="list-group-item list-group-item-action">Cross Topics Performance Analysis of Exam1</a>
             <a href="#" id="btn4" value="img4" class="list-group-item list-group-item-action disabled">Cross-Exam Topic-Combination-Analysis</a>
-            <a href="#" id="btn5" value="img5" class="list-group-item list-group-item-action">Radar diagram of Q3 in Exam1</a>
-            <a href="#" id="btn6" value="img6" class="list-group-item list-group-item-action">Radar diagram in Exam1</a>
+            <a href="/students/4" id="btn5" value="img5" class="list-group-item list-group-item-action">Radar diagram of Q3 in Exam1</a>
+            <a href="/students/5" id="btn6" value="img6" class="list-group-item list-group-item-action">Radar diagram in Exam1</a>
         </nav>
     
         <!-- <div id="visual" style="float:left;width:50%;height:20%;">
@@ -62,7 +62,7 @@
             {{ figure_6|safe}}
         </div> -->
         <div id="visual" style="float:left;height:15%;" class="col-xs-10 col-sm-8 col-lg-6">
-            {% with "students/"|add:template_name as template %}
+            {% with "students/visualizations/Exam1/106306011/"|add:template_name as template %}
                 {% include template %}
             {% endwith %}
             

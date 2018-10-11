@@ -3,12 +3,21 @@
 {% block title %}Visualizations{% endblock %}
 
 {% block content %}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 <script>
     $(function() {
         $('.list-group-item.list-group-item-action').click(function(){
             var imgID = $(this).attr('value');
-            $(".visualizations").hide();
-            $('#' + imgID).show();
+            if($(this).hasClass('disabled')){
+
+            }else{
+                $(".visualizations").hide();
+                $('#' + imgID).show();
+            }
+            
         });
     });
 </script>
@@ -39,7 +48,7 @@
             <a href="#" id="btn1" value="img1" class="list-group-item list-group-item-action">Question-based topic combination analysis</a>
             <a href="#" id="btn2" value="img2" class="list-group-item list-group-item-action">Topics Combination Analysis based on different student grades' group</a>
             <a href="#" id="btn3" value="img3" class="list-group-item list-group-item-action">Cross Topics Performance Analysis of Exam1</a>
-            <a href="#" id="btn4" class="list-group-item list-group-item-action disabled">Cross-Exam Topic-Combination-Analysis</a>
+            <a href="#" id="btn4" value="img4" class="list-group-item list-group-item-action disabled">Cross-Exam Topic-Combination-Analysis</a>
             <a href="#" id="btn5" value="img5" class="list-group-item list-group-item-action">Radar diagram of Q3 in Exam1</a>
             <a href="#" id="btn6" value="img6" class="list-group-item list-group-item-action">Radar diagram in Exam1</a>
         </nav>
@@ -52,16 +61,20 @@
             {{ figure_5|safe}}
             {{ figure_6|safe}}
         </div> -->
-        <div id="visual" style="float:left;width:50%;height:15%;">
-            <img id="img1" class="visualizations" src="{% static "images/Question-based-topic-combination-analysis.png" %}"  style="width:40em;height:25em; " alt="Question-based topic combination analysis" />
+        <div id="visual" style="float:left;height:15%;" class="col-xs-10 col-sm-8 col-lg-6">
+            {% with "students/"|add:template_name as template %}
+                {% include template %}
+            {% endwith %}
+            
+            <!-- <img id="img1" class="visualizations" src="{% static "images/Question-based-topic-combination-analysis.png" %}"  style="width:40em;height:25em; " alt="Question-based topic combination analysis" />
             <img id="img2" class="visualizations" src="{% static "images/Topics-Combination-Analysis-based-on-different-student-grades.png" %}"  style="width:40em;height:25em;display:none" alt="Topics-Combination-Analysis-based-on-different-student-grades" />
             <img id="img3" class="visualizations" src="{% static "images/Cross-Topics-Performance-Analysis-of-Exam1.png" %}"  style="width:40em;height:25em;display:none" alt="Cross-Topics-Performance-Analysis-of-Exam1" />
             <img id="img4" class="visualizations" src="{% static "images/Cross-Exam-Topic-Combination-Analysis.png" %}"  style="width:40em;height:25em;display:none" alt="Cross-Exam-Topic-Combination-Analysis" />
             <img id="img5" class="visualizations" src="{% static "images/Radar-diagram-of-Q3-in-Exam1.png" %}"  style="width:40em;height:25em;display:none" alt="Radar-diagram-of-Q3-in-Exam1" />
-            <img id="img6" class="visualizations" src="{% static "images/Radar-diagram-in-Exam1.png" %}"  style="width:40em;height:25em;display:none" alt="Radar-diagram-in-Exam1" />
+            <img id="img6" class="visualizations" src="{% static "images/Radar-diagram-in-Exam1.png" %}"  style="width:40em;height:25em;display:none" alt="Radar-diagram-in-Exam1" /> -->
         </div>
     
-        <div class="forms" style="float:left;width:35%;left:-50%;height:20%; bottom:35%">
+        <div class="forms col-xs-4 col-sm-2 col-lg-3" style="float:left;left:0%;height:20%; bottom:35%">
             <form action="/students/" method="post">
                 {% csrf_token %}
                 <h3>{{question}}</h3>
@@ -92,7 +105,7 @@
         
     </section>
     <section style="height: 30%;">
-        <div style="float:left;width:50%;position:relative;left:25%">
+        <div style="float:left;width:50%;position:relative;">
             Compare two figures, question-based analysis shows that Q5 is the question which students perform worst. Teachers can find that most tags of Q5 is about “Javadoc”, so Javadoc is the topic that should be reviewed after exam. However, some tags shows in exam with other relatively easy tags, so teacher can not find this topic need to be reviewed just by question-based analysis. That’s why we should consider both question-based and topic-based anaysis.
         </div>
     </section>

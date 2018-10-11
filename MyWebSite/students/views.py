@@ -494,6 +494,7 @@ def showVisualizations(request, visualizationId=None):
                     'classAverages': average,
                     'form': form,
                     'question': question,
+                    'template_name': 'test_visual_div.html', 
                 }
             else:
                 fig_html, student_questionslist, average = getVisualization_2(request, 1)
@@ -512,6 +513,7 @@ def showVisualizations(request, visualizationId=None):
                     'classAverages': average,
                     'form': form,
                     'question': question,
+                    'template_name': 'test_visual_div.html', 
                 }
     else:
         form = Valuations.ValuationsForm
@@ -527,6 +529,7 @@ def showVisualizations(request, visualizationId=None):
                 'classAverages': average,
                 'form': form,
                 'question': question,
+                'template_name': 'test_visual_div.html', 
             }
         else:
             # fig_html_list = []
@@ -545,6 +548,7 @@ def showVisualizations(request, visualizationId=None):
                 'classAverages': average,
                 'form': form,
                 'question': question,
+                'template_name': 'test_visual_div.html', 
             }
 
     # try:
